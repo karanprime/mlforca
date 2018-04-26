@@ -1,0 +1,3946 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[    162208,       3938]
+NotebookOptionsPosition[    159564,       3845]
+NotebookOutlinePosition[    159917,       3861]
+CellTagsIndexPosition[    159874,       3858]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"rules", " ", "=", " ", 
+    RowBox[{"Range", "[", "255", "]"}]}], ";"}], "\n"}], "\n", 
+ RowBox[{
+  RowBox[{"CreateData", "[", 
+   RowBox[{"range_", ",", "init_", ",", "t_", ",", "preserveBackground_"}], 
+   "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", "ca", "}"}], ",", "\n", 
+    RowBox[{
+     RowBox[{"ca", " ", "=", " ", 
+      RowBox[{"If", "[", 
+       RowBox[{"preserveBackground", ",", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"CellularAutomaton", "[", 
+           RowBox[{"#", ",", "init", ",", 
+            RowBox[{"{", 
+             RowBox[{"t", ",", "All"}], "}"}]}], "]"}], "&"}], " ", "/@", " ",
+          "labels"}], ",", " ", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"CellularAutomaton", "[", 
+           RowBox[{"#", ",", "init", ",", "t"}], "]"}], "&"}], " ", "/@", " ",
+          "labels"}]}], "]"}]}], ";"}]}], "\n", "]"}]}]}], "Code",
+ CellChangeTimes->{
+  3.676415993927683*^9, {3.676419211778764*^9, 3.676419212450262*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"t", " ", "=", " ", "50"}]], "Input",
+ CellChangeTimes->{{3.6764176127826023`*^9, 3.676417614408597*^9}}],
+
+Cell[BoxData["50"], "Output",
+ CellChangeTimes->{3.676417614787115*^9, 3.676586772653037*^9, 
+  3.6766742264435253`*^9, 3.676735302819607*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Dimensions", "[", "FeatureSet", "]"}]], "Input",
+ CellChangeTimes->{{3.676655974437354*^9, 3.676655976353771*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Output",
+ CellChangeTimes->{3.6766742294409103`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"randomInit", " ", ":=", " ", 
+   RowBox[{"RandomInteger", "[", 
+    RowBox[{"1", ",", "50"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", "randomInit", "\[IndentingNewLine]", 
+ RowBox[{"ctable", " ", "=", 
+  RowBox[{"CreateData", "[", 
+   RowBox[{"255", ",", "randomInit", ",", "50", ",", "False"}], 
+   "]"}]}]}], "Input",
+ CellChangeTimes->{{3.6764160150223303`*^9, 3.6764160388770723`*^9}, {
+   3.676417525844213*^9, 3.676417557306273*^9}, 3.676417590665305*^9, {
+   3.676586818472711*^9, 3.6765868194881277`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "1", ",", "0", ",", "1", ",", "1", ",", "0", ",", "0", ",", "1", ",", "0", 
+   ",", "0", ",", "1", ",", "1", ",", "1", ",", "1", ",", "0", ",", "1", ",", 
+   "1", ",", "0", ",", "0", ",", "0", ",", "1", ",", "1", ",", "0", ",", "0", 
+   ",", "1", ",", "0", ",", "0", ",", "1", ",", "1", ",", "0", ",", "0", ",", 
+   "0", ",", "0", ",", "0", ",", "1", ",", "1", ",", "1", ",", "0", ",", "1", 
+   ",", "1", ",", "0", ",", "1", ",", "1", ",", "1", ",", "0", ",", "0", ",", 
+   "0", ",", "0", ",", "1", ",", "0", ",", "1"}], "}"}]], "Output",
+ CellChangeTimes->{{3.6764160261384478`*^9, 3.676416040163725*^9}, {
+   3.676417499973299*^9, 3.676417505538887*^9}, 3.676417557752943*^9, 
+   3.6765867743542852`*^9, 3.676586820499352*^9, 3.676674227850708*^9, 
+   3.676735307571563*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"r2", " ", "=", " ", "randomInit"}]], "Input",
+ CellChangeTimes->{{3.676416053360495*^9, 3.676416057776984*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "1", ",", "0", ",", "1", ",", "0", ",", "0", ",", "0", ",", "1", ",", "1", 
+   ",", "1", ",", "1", ",", "0", ",", "1", ",", "1", ",", "0", ",", "0", ",", 
+   "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+   ",", "0", ",", "1", ",", "0", ",", "1", ",", "0", ",", "0", ",", "1", ",", 
+   "0", ",", "0", ",", "1", ",", "1", ",", "1", ",", "0", ",", "1", ",", "1", 
+   ",", "1", ",", "1", ",", "1", ",", "0", ",", "0", ",", "1", ",", "0", ",", 
+   "1", ",", "1", ",", "1", ",", "1", ",", "0"}], "}"}]], "Input",
+ CellChangeTimes->{3.676735309275016*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "1", ",", "0", ",", "1", ",", "0", ",", "0", ",", "0", ",", "1", ",", "1", 
+   ",", "1", ",", "1", ",", "0", ",", "1", ",", "1", ",", "0", ",", "0", ",", 
+   "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+   ",", "0", ",", "1", ",", "0", ",", "1", ",", "0", ",", "0", ",", "1", ",", 
+   "0", ",", "0", ",", "1", ",", "1", ",", "1", ",", "0", ",", "1", ",", "1", 
+   ",", "1", ",", "1", ",", "1", ",", "0", ",", "0", ",", "1", ",", "0", ",", 
+   "1", ",", "1", ",", "1", ",", "1", ",", "0"}], "}"}]], "Output",
+ CellChangeTimes->{3.676735309372188*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"r2", "[", 
+   RowBox[{"[", "4", "]"}], "]"}], "=", "0"}]], "Input",
+ CellChangeTimes->{{3.676416062385942*^9, 3.676416067921413*^9}}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Set","noval",
+   "\"Symbol \\!\\(\\*RowBox[{\\\"r2\\\"}]\\) in part assignment does not \
+have an immediate value.\"",2,58,6,16868271649372999525,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.676735311828361*^9}],
+
+Cell[BoxData["0"], "Output",
+ CellChangeTimes->{3.676416068217514*^9, 3.676674234023614*^9, 
+  3.676735311839633*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["r2"], "Input",
+ CellChangeTimes->{{3.676416069791685*^9, 3.67641606995317*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "1", ",", "0", ",", "1", ",", "0", ",", "0", ",", "0", ",", "1", ",", "0", 
+   ",", "1", ",", "0", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", 
+   "0", ",", "0", ",", "0", ",", "1", ",", "0", ",", "0", ",", "0", ",", "0", 
+   ",", "1", ",", "1", ",", "0", ",", "1", ",", "1", ",", "1", ",", "0", ",", 
+   "0", ",", "1", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "1", 
+   ",", "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "0", ",", "0", ",", 
+   "0", ",", "0", ",", "0", ",", "0", ",", "1"}], "}"}]], "Output",
+ CellChangeTimes->{3.6764160703774157`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"catable", " ", "=", "  ", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"CellularAutomaton", "[", 
+     RowBox[{"#", ",", "randomInit", ",", 
+      RowBox[{"{", 
+       RowBox[{"t", ",", "All"}], "}"}]}], "]"}], "&"}], " ", "/@", " ", 
+   "rules"}]}]], "Input",
+ CellChangeTimes->{{3.6764160727485113`*^9, 3.6764160834911633`*^9}, 
+   3.6764175877699747`*^9, {3.676419114070961*^9, 3.676419118588964*^9}, {
+   3.676419195852024*^9, 3.6764192155223627`*^9}, {3.676586809064746*^9, 
+   3.67658681093928*^9}}],
+
+Cell[BoxData[
+ InterpretationBox[
+  TagBox[
+   FrameBox[GridBox[{
+      {
+       ItemBox[
+        TagBox[
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+              "1", ",", "0", ",", "0", ",", "0", ",", "0", ",", "1", ",", "1",
+                ",", "0", ",", "0", ",", "0", ",", "1", ",", "0", ",", "1", 
+               ",", "0", ",", "1", ",", "0", ",", "0", ",", "0", ",", "0", 
+               ",", "1", ",", "0", ",", "1", ",", "0", ",", "1", ",", "1", 
+               ",", "0", ",", "1", ",", "1", ",", "0", ",", "0", ",", "0", 
+               ",", "0", ",", "1", ",", "1", ",", "0", ",", "0", ",", "1", 
+               ",", "0", ",", "0", ",", "1", ",", "1", ",", "0", ",", "0", 
+               ",", "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "0", 
+               ",", "0"}], "}"}], ",", 
+             TemplateBox[{"49"},
+              "OutputSizeLimit`Skeleton",
+              DisplayFunction->(FrameBox[
+                
+                RowBox[{
+                 "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+                Background -> GrayLevel[0.75], 
+                BaseStyle -> {
+                 "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                  ShowStringCharacters -> False}, BaselinePosition -> 
+                Baseline, ContentPadding -> False, 
+                FrameMargins -> {{1, 1}, {1, 2}}, FrameStyle -> None, 
+                RoundingRadius -> 7]& )], ",", 
+             RowBox[{"{", 
+              RowBox[{
+              "1", ",", "0", ",", "0", ",", "0", ",", "0", ",", "1", ",", "1",
+                ",", "0", ",", "0", ",", "0", ",", "1", ",", "1", ",", "1", 
+               ",", "1", ",", "1", ",", "0", ",", "0", ",", "0", ",", "0", 
+               ",", "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1", 
+               ",", "1", ",", "1", ",", "1", ",", "0", ",", "0", ",", "0", 
+               ",", "0", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1", 
+               ",", "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1", 
+               ",", "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1", 
+               ",", "1"}], "}"}]}], "}"}], ",", 
+           TemplateBox[{"254"},
+            "OutputSizeLimit`Skeleton",
+            DisplayFunction->(FrameBox[
+              RowBox[{"\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}],
+               Background -> GrayLevel[0.75], 
+              BaseStyle -> {
+               "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                ShowStringCharacters -> False}, BaselinePosition -> Baseline, 
+              ContentPadding -> False, FrameMargins -> {{1, 1}, {1, 2}}, 
+              FrameStyle -> None, RoundingRadius -> 7]& )]}], "}"}],
+         Short[#, 5]& ],
+        BaseStyle->{Deployed -> False},
+        StripOnInput->False]},
+      {GridBox[{
+         {
+          TagBox[
+           TooltipBox[
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource[
+                "FEStrings", "sizeBriefExplanation"], StandardForm],
+               ImageSizeCache->{58., {2., 8.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarCategory",
+             StripOnInput->False],
+            StyleBox[
+             DynamicBox[
+              ToBoxes[
+               FEPrivate`FrontEndResource["FEStrings", "sizeExplanation"], 
+               StandardForm]], DynamicUpdating -> True, StripOnInput -> 
+             False]],
+           Annotation[#, 
+            Style[
+             Dynamic[
+              FEPrivate`FrontEndResource["FEStrings", "sizeExplanation"]], 
+             DynamicUpdating -> True], "Tooltip"]& ], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowLess"], 
+                StandardForm],
+               ImageSizeCache->{50., {0., 8.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowLess"], 
+                StandardForm]],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, 25}],
+           Appearance->None,
+           
+           ButtonFunction:>OutputSizeLimit`ButtonFunction[
+            OutputSizeLimit`Defer, 116, 16867858777678077145, 5/2],
+           Enabled->True,
+           Evaluator->Automatic,
+           Method->"Queued"], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowMore"], 
+                StandardForm],
+               ImageSizeCache->{56., {0., 8.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowMore"], 
+                StandardForm],
+               ImageSizeCache->{56., {0., 8.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, 25}],
+           Appearance->None,
+           
+           ButtonFunction:>OutputSizeLimit`ButtonFunction[
+            OutputSizeLimit`Defer, 116, 16867858777678077145, 5 2],
+           Enabled->True,
+           Evaluator->Automatic,
+           Method->"Queued"], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowAll"], 
+                StandardForm],
+               ImageSizeCache->{42., {0., 8.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowAll"], 
+                StandardForm]],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, 25}],
+           Appearance->None,
+           
+           ButtonFunction:>OutputSizeLimit`ButtonFunction[
+            OutputSizeLimit`Defer, 116, 16867858777678077145, Infinity],
+           Enabled->True,
+           Evaluator->Automatic,
+           Method->"Queued"], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeChangeLimit"], 
+                StandardForm],
+               ImageSizeCache->{74., {0., 8.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeChangeLimit"], 
+                StandardForm]],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, 25}],
+           Appearance->None,
+           ButtonFunction:>FrontEndExecute[{
+              FrontEnd`SetOptions[
+              FrontEnd`$FrontEnd, 
+               FrontEnd`PreferencesSettings -> {"Page" -> "Evaluation"}], 
+              FrontEnd`FrontEndToken["PreferencesDialog"]}],
+           Evaluator->None,
+           Method->"Preemptive"]}
+        },
+        AutoDelete->False,
+        FrameStyle->GrayLevel[0.85],
+        GridBoxDividers->{"Columns" -> {False, {True}}},
+        GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+        GridBoxSpacings->{"Columns" -> {{2}}}]}
+     },
+     DefaultBaseStyle->"Column",
+     GridBoxAlignment->{
+      "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+       "RowsIndexed" -> {}},
+     GridBoxDividers->{
+      "Columns" -> {{False}}, "ColumnsIndexed" -> {}, "Rows" -> {{False}}, 
+       "RowsIndexed" -> {}},
+     GridBoxItemSize->{
+      "Columns" -> {{Automatic}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+       "RowsIndexed" -> {}},
+     GridBoxSpacings->{"Columns" -> {
+         Offset[0.27999999999999997`], {
+          Offset[0.5599999999999999]}, 
+         Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+         Offset[0.2], 
+         Offset[1.2], {
+          Offset[0.4]}, 
+         Offset[0.2]}, "RowsIndexed" -> {}}],
+    Background->RGBColor[0.9657, 0.9753, 0.9802],
+    FrameMargins->{{12, 12}, {0, 15}},
+    FrameStyle->GrayLevel[0.85],
+    RoundingRadius->5,
+    StripOnInput->False],
+   Deploy,
+   DefaultBaseStyle->"Deploy"],
+  Out[116]]], "Output",
+ CellChangeTimes->{{3.676419198414011*^9, 3.6764192178549747`*^9}, {
+  3.676586767089448*^9, 3.676586780875845*^9}, {3.676586814806348*^9, 
+  3.676586824044901*^9}, {3.676674221719534*^9, 3.6766742386875668`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Dimensions", "[", "%29", "]"}]], "Input",
+ NumberMarks->False],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"255", ",", "51", ",", "50"}], "}"}]], "Output",
+ CellChangeTimes->{3.676417620783196*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"diff", " ", "=", 
+  RowBox[{"Table", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"Abs", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"catable", "[", 
+          RowBox[{"[", "i", "]"}], "]"}], "[", 
+         RowBox[{"[", "#", "]"}], "]"}], "-", 
+        RowBox[{
+         RowBox[{"catable2", "[", 
+          RowBox[{"[", "i", "]"}], "]"}], "[", 
+         RowBox[{"[", "#", "]"}], "]"}]}], "]"}], "&"}], "/@", 
+     RowBox[{"Range", "[", "50", "]"}]}], ",", 
+    RowBox[{"{", 
+     RowBox[{"i", ",", 
+      RowBox[{"Length", "[", "catable", "]"}]}], "}"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.676416094206025*^9, 3.676416274733162*^9}}],
+
+Cell[BoxData[
+ InterpretationBox[
+  TagBox[
+   FrameBox[GridBox[{
+      {
+       ItemBox[
+        TagBox[
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+              "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0",
+                ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+               ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+               ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+               ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+               ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+               ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+               ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+               ",", "0"}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+              "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0",
+                ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+               ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+               ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+               ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+               ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+               ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+               ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+               ",", "0"}], "}"}], ",", 
+             TemplateBox[{"47"},
+              "OutputSizeLimit`Skeleton",
+              DisplayFunction->(FrameBox[
+                
+                RowBox[{
+                 "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+                Background -> GrayLevel[0.75], 
+                BaseStyle -> {
+                 "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                  ShowStringCharacters -> False}, BaselinePosition -> 
+                Baseline, ContentPadding -> False, 
+                FrameMargins -> {{1, 1}, {1, 2}}, FrameStyle -> None, 
+                RoundingRadius -> 7]& )], ",", 
+             RowBox[{"{", 
+              RowBox[{
+              "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0",
+                ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+               ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+               ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+               ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+               ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+               ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+               ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+               ",", "0"}], "}"}]}], "}"}], ",", 
+           RowBox[{"{", 
+            TemplateBox[{"1"},
+             "OutputSizeLimit`Skeleton",
+             DisplayFunction->(FrameBox[
+               
+               RowBox[{
+                "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+               Background -> GrayLevel[0.75], 
+               BaseStyle -> {
+                "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                 ShowStringCharacters -> False}, BaselinePosition -> Baseline,
+                ContentPadding -> False, FrameMargins -> {{1, 1}, {1, 2}}, 
+               FrameStyle -> None, RoundingRadius -> 7]& )], "}"}], ",", 
+           RowBox[{"{", 
+            TemplateBox[{"1"},
+             "OutputSizeLimit`Skeleton",
+             DisplayFunction->(FrameBox[
+               
+               RowBox[{
+                "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+               Background -> GrayLevel[0.75], 
+               BaseStyle -> {
+                "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                 ShowStringCharacters -> False}, BaselinePosition -> Baseline,
+                ContentPadding -> False, FrameMargins -> {{1, 1}, {1, 2}}, 
+               FrameStyle -> None, RoundingRadius -> 7]& )], "}"}], ",", 
+           TemplateBox[{"44"},
+            "OutputSizeLimit`Skeleton",
+            DisplayFunction->(FrameBox[
+              RowBox[{"\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}],
+               Background -> GrayLevel[0.75], 
+              BaseStyle -> {
+               "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                ShowStringCharacters -> False}, BaselinePosition -> Baseline, 
+              ContentPadding -> False, FrameMargins -> {{1, 1}, {1, 2}}, 
+              FrameStyle -> None, RoundingRadius -> 7]& )], ",", 
+           RowBox[{"{", 
+            TemplateBox[{"1"},
+             "OutputSizeLimit`Skeleton",
+             DisplayFunction->(FrameBox[
+               
+               RowBox[{
+                "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+               Background -> GrayLevel[0.75], 
+               BaseStyle -> {
+                "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                 ShowStringCharacters -> False}, BaselinePosition -> Baseline,
+                ContentPadding -> False, FrameMargins -> {{1, 1}, {1, 2}}, 
+               FrameStyle -> None, RoundingRadius -> 7]& )], "}"}], ",", 
+           RowBox[{"{", 
+            TemplateBox[{"1"},
+             "OutputSizeLimit`Skeleton",
+             DisplayFunction->(FrameBox[
+               
+               RowBox[{
+                "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+               Background -> GrayLevel[0.75], 
+               BaseStyle -> {
+                "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                 ShowStringCharacters -> False}, BaselinePosition -> Baseline,
+                ContentPadding -> False, FrameMargins -> {{1, 1}, {1, 2}}, 
+               FrameStyle -> None, RoundingRadius -> 7]& )], "}"}], ",", 
+           RowBox[{"{", 
+            TemplateBox[{"1"},
+             "OutputSizeLimit`Skeleton",
+             DisplayFunction->(FrameBox[
+               
+               RowBox[{
+                "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+               Background -> GrayLevel[0.75], 
+               BaseStyle -> {
+                "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                 ShowStringCharacters -> False}, BaselinePosition -> Baseline,
+                ContentPadding -> False, FrameMargins -> {{1, 1}, {1, 2}}, 
+               FrameStyle -> None, RoundingRadius -> 7]& )], "}"}]}], "}"}],
+         Short[#, 5]& ],
+        BaseStyle->{Deployed -> False},
+        StripOnInput->False]},
+      {GridBox[{
+         {
+          TagBox[
+           TooltipBox[
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource[
+                "FEStrings", "sizeBriefExplanation"], StandardForm],
+               ImageSizeCache->{58., {2., 8.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarCategory",
+             StripOnInput->False],
+            StyleBox[
+             DynamicBox[
+              ToBoxes[
+               FEPrivate`FrontEndResource["FEStrings", "sizeExplanation"], 
+               StandardForm]], DynamicUpdating -> True, StripOnInput -> 
+             False]],
+           Annotation[#, 
+            Style[
+             Dynamic[
+              FEPrivate`FrontEndResource["FEStrings", "sizeExplanation"]], 
+             DynamicUpdating -> True], "Tooltip"]& ], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowLess"], 
+                StandardForm],
+               ImageSizeCache->{50., {0., 8.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowLess"], 
+                StandardForm]],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, 25}],
+           Appearance->None,
+           
+           ButtonFunction:>OutputSizeLimit`ButtonFunction[
+            OutputSizeLimit`Defer, 59, 16868271649372999525, 5/2],
+           Enabled->True,
+           Evaluator->Automatic,
+           Method->"Queued"], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowMore"], 
+                StandardForm],
+               ImageSizeCache->{56., {0., 8.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowMore"], 
+                StandardForm]],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, 25}],
+           Appearance->None,
+           
+           ButtonFunction:>OutputSizeLimit`ButtonFunction[
+            OutputSizeLimit`Defer, 59, 16868271649372999525, 5 2],
+           Enabled->True,
+           Evaluator->Automatic,
+           Method->"Queued"], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowAll"], 
+                StandardForm],
+               ImageSizeCache->{42., {0., 8.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowAll"], 
+                StandardForm]],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, 25}],
+           Appearance->None,
+           
+           ButtonFunction:>OutputSizeLimit`ButtonFunction[
+            OutputSizeLimit`Defer, 59, 16868271649372999525, Infinity],
+           Enabled->True,
+           Evaluator->Automatic,
+           Method->"Queued"], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeChangeLimit"], 
+                StandardForm],
+               ImageSizeCache->{74., {0., 8.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeChangeLimit"], 
+                StandardForm]],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, 25}],
+           Appearance->None,
+           ButtonFunction:>FrontEndExecute[{
+              FrontEnd`SetOptions[
+              FrontEnd`$FrontEnd, 
+               FrontEnd`PreferencesSettings -> {"Page" -> "Evaluation"}], 
+              FrontEnd`FrontEndToken["PreferencesDialog"]}],
+           Evaluator->None,
+           Method->"Preemptive"]}
+        },
+        AutoDelete->False,
+        FrameStyle->GrayLevel[0.85],
+        GridBoxDividers->{"Columns" -> {False, {True}}},
+        GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+        GridBoxSpacings->{"Columns" -> {{2}}}]}
+     },
+     DefaultBaseStyle->"Column",
+     GridBoxAlignment->{
+      "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+       "RowsIndexed" -> {}},
+     GridBoxDividers->{
+      "Columns" -> {{False}}, "ColumnsIndexed" -> {}, "Rows" -> {{False}}, 
+       "RowsIndexed" -> {}},
+     GridBoxItemSize->{
+      "Columns" -> {{Automatic}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+       "RowsIndexed" -> {}},
+     GridBoxSpacings->{"Columns" -> {
+         Offset[0.27999999999999997`], {
+          Offset[0.5599999999999999]}, 
+         Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+         Offset[0.2], 
+         Offset[1.2], {
+          Offset[0.4]}, 
+         Offset[0.2]}, "RowsIndexed" -> {}}],
+    Background->RGBColor[0.9657, 0.9753, 0.9802],
+    FrameMargins->{{12, 12}, {0, 15}},
+    FrameStyle->GrayLevel[0.85],
+    RoundingRadius->5,
+    StripOnInput->False],
+   Deploy,
+   DefaultBaseStyle->"Deploy"],
+  Out[59]]], "Output",
+ CellChangeTimes->{{3.67641624566684*^9, 3.676416276837718*^9}, 
+   3.676735314180743*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["diff"], "Input",
+ CellChangeTimes->{{3.6764162983443537`*^9, 3.676416298795837*^9}}],
+
+Cell[BoxData[
+ InterpretationBox[
+  TagBox[
+   FrameBox[GridBox[{
+      {
+       ItemBox[
+        TagBox[
+         RowBox[{"{", 
+          TemplateBox[{"1"},
+           "OutputSizeLimit`Skeleton",
+           DisplayFunction->(FrameBox[
+             RowBox[{"\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+             Background -> GrayLevel[0.75], 
+             BaseStyle -> {
+              "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+               ShowStringCharacters -> False}, BaselinePosition -> Baseline, 
+             ContentPadding -> False, FrameMargins -> {{1, 1}, {1, 2}}, 
+             FrameStyle -> None, RoundingRadius -> 7]& )], "}"}],
+         Short[#, 5]& ],
+        BaseStyle->{Deployed -> False},
+        StripOnInput->False]},
+      {GridBox[{
+         {
+          TagBox[
+           TooltipBox[
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource[
+                "FEStrings", "sizeBriefExplanation"], StandardForm],
+               ImageSizeCache->{58., {2., 8.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarCategory",
+             StripOnInput->False],
+            StyleBox[
+             DynamicBox[
+              ToBoxes[
+               FEPrivate`FrontEndResource["FEStrings", "sizeExplanation"], 
+               StandardForm]], DynamicUpdating -> True, StripOnInput -> 
+             False]],
+           Annotation[#, 
+            Style[
+             Dynamic[
+              FEPrivate`FrontEndResource["FEStrings", "sizeExplanation"]], 
+             DynamicUpdating -> True], "Tooltip"]& ], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowLess"], 
+                StandardForm],
+               ImageSizeCache->{50., {0., 8.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowLess"], 
+                StandardForm],
+               ImageSizeCache->{50., {0., 8.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, 25}],
+           Appearance->None,
+           
+           ButtonFunction:>OutputSizeLimit`ButtonFunction[
+            OutputSizeLimit`Defer, 123, 16866006969283884384, 5/2],
+           Enabled->True,
+           Evaluator->Automatic,
+           Method->"Queued"], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowMore"], 
+                StandardForm],
+               ImageSizeCache->{56., {0., 8.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowMore"], 
+                StandardForm]],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, 25}],
+           Appearance->None,
+           
+           ButtonFunction:>OutputSizeLimit`ButtonFunction[
+            OutputSizeLimit`Defer, 123, 16866006969283884384, 5 2],
+           Enabled->True,
+           Evaluator->Automatic,
+           Method->"Queued"], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowAll"], 
+                StandardForm],
+               ImageSizeCache->{42., {0., 8.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowAll"], 
+                StandardForm],
+               ImageSizeCache->{42., {0., 8.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, 25}],
+           Appearance->None,
+           
+           ButtonFunction:>OutputSizeLimit`ButtonFunction[
+            OutputSizeLimit`Defer, 123, 16866006969283884384, Infinity],
+           Enabled->True,
+           Evaluator->Automatic,
+           Method->"Queued"], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeChangeLimit"], 
+                StandardForm],
+               ImageSizeCache->{74., {0., 8.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeChangeLimit"], 
+                StandardForm]],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, 25}],
+           Appearance->None,
+           ButtonFunction:>FrontEndExecute[{
+              FrontEnd`SetOptions[
+              FrontEnd`$FrontEnd, 
+               FrontEnd`PreferencesSettings -> {"Page" -> "Evaluation"}], 
+              FrontEnd`FrontEndToken["PreferencesDialog"]}],
+           Evaluator->None,
+           Method->"Preemptive"]}
+        },
+        AutoDelete->False,
+        FrameStyle->GrayLevel[0.85],
+        GridBoxDividers->{"Columns" -> {False, {True}}},
+        GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+        GridBoxSpacings->{"Columns" -> {{2}}}]}
+     },
+     DefaultBaseStyle->"Column",
+     GridBoxAlignment->{
+      "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+       "RowsIndexed" -> {}},
+     GridBoxDividers->{
+      "Columns" -> {{False}}, "ColumnsIndexed" -> {}, "Rows" -> {{False}}, 
+       "RowsIndexed" -> {}},
+     GridBoxItemSize->{
+      "Columns" -> {{Automatic}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+       "RowsIndexed" -> {}},
+     GridBoxSpacings->{"Columns" -> {
+         Offset[0.27999999999999997`], {
+          Offset[0.5599999999999999]}, 
+         Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+         Offset[0.2], 
+         Offset[1.2], {
+          Offset[0.4]}, 
+         Offset[0.2]}, "RowsIndexed" -> {}}],
+    Background->RGBColor[0.9657, 0.9753, 0.9802],
+    FrameMargins->{{12, 12}, {0, 15}},
+    FrameStyle->GrayLevel[0.85],
+    RoundingRadius->5,
+    StripOnInput->False],
+   Deploy,
+   DefaultBaseStyle->"Deploy"],
+  Out[123]]], "Output",
+ CellChangeTimes->{3.676416300196125*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"diff", "[", 
+   RowBox[{"[", "1", "]"}], "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.676416301152424*^9, 3.676416303236141*^9}, 
+   3.676735505725873*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"labels", " ", "=", " ", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"ArrayPlot", "[", 
+      RowBox[{"#", ",", " ", 
+       RowBox[{"ImageSize", "\[Rule]", "100"}]}], "]"}], "&"}], "/@", 
+    "diff"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.676416397915497*^9, 3.676416402330757*^9}}],
+
+Cell[BoxData["labels"], "Input",
+ CellChangeTimes->{{3.6764164336492243`*^9, 3.676416434231833*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.6764168166181927`*^9, 3.676416831749092*^9}, {
+  3.676417326181159*^9, 3.676417349606756*^9}}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Part","take",
+   "\"Cannot take positions \\!\\(\\*RowBox[{\\\"1\\\"}]\\) through \
+\\!\\(\\*RowBox[{\\\"49\\\"}]\\) in \\!\\(\\*RowBox[{\\\"catable\\\"}]\\).\"",
+   2,5,1,16866199534942642147,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.676417340047162*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"catable3", " ", "=", " ", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"#", "[", 
+      RowBox[{"[", 
+       RowBox[{"2", ";;", "50"}], "]"}], "]"}], "&"}], "/@", "catable"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.6764169204803543`*^9, 3.676416986672388*^9}, 
+   3.6764173240475492`*^9}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"catable4", " ", "=", " ", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"#", "[", 
+      RowBox[{"[", 
+       RowBox[{"1", ";;", "49"}], "]"}], "]"}], "&"}], "/@", "catable"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"catable5", " ", "=", " ", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"#", "[", 
+      RowBox[{"[", 
+       RowBox[{"3", ";;", "50"}], "]"}], "]"}], "&"}], "/@", "catable"}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.676416993593313*^9, 3.676417008221649*^9}, {
+  3.676417328373192*^9, 3.676417378691848*^9}, {3.676586830238846*^9, 
+  3.676586831406909*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"catable6", " ", "=", " ", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"#", "[", 
+      RowBox[{"[", 
+       RowBox[{"1", ";;", "48"}], "]"}], "]"}], "&"}], "/@", "catable"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Dimensions", " ", "/@", " ", 
+  RowBox[{"{", 
+   RowBox[{
+   "catable3", ",", "catable4", ",", "catable5", ",", "catable6", ",", 
+    "catable"}], "}"}]}]}], "Input",
+ CellChangeTimes->{{3.676417387541356*^9, 3.676417391363962*^9}, {
+  3.6764174558952923`*^9, 3.676417473071313*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"50", ",", "49", ",", "50"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"50", ",", "49", ",", "50"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"50", ",", "48", ",", "50"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"50", ",", "48", ",", "50"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"50", ",", "51", ",", "50"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.6764174741010942`*^9, 3.676417632524057*^9, 
+  3.676419234270262*^9, 3.67658683386838*^9, 3.67667424620021*^9, 
+  3.676735325612445*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"diff2", "=", " ", 
+  RowBox[{"Table", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"Abs", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"catable3", "[", 
+          RowBox[{"[", "i", "]"}], "]"}], "[", 
+         RowBox[{"[", "#", "]"}], "]"}], "-", 
+        RowBox[{
+         RowBox[{"catable4", "[", 
+          RowBox[{"[", "i", "]"}], "]"}], "[", 
+         RowBox[{"[", "#", "]"}], "]"}]}], "]"}], "&"}], "/@", 
+     RowBox[{"Range", "[", "49", "]"}]}], ",", 
+    RowBox[{"{", 
+     RowBox[{"i", ",", 
+      RowBox[{"Length", "[", "catable3", "]"}]}], "}"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.676417012139605*^9, 3.6764170627714148`*^9}, {
+  3.676417412679386*^9, 3.676417414574366*^9}}],
+
+Cell[BoxData[
+ InterpretationBox[
+  TagBox[
+   FrameBox[GridBox[{
+      {
+       ItemBox[
+        TagBox[
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+              "0", ",", "0", ",", "0", ",", "0", ",", "1", ",", "0", ",", "0",
+                ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+               ",", "0", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1", 
+               ",", "0", ",", "0", ",", "1", ",", "0", ",", "0", ",", "0", 
+               ",", "0", ",", "1", ",", "0", ",", "0", ",", "1", ",", "1", 
+               ",", "0", ",", "0", ",", "1", ",", "1", ",", "0", ",", "0", 
+               ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "1", 
+               ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+               ",", "0"}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+              "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0",
+                ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+               ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+               ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+               ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+               ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+               ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+               ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+               ",", "0"}], "}"}], ",", 
+             TemplateBox[{"46"},
+              "OutputSizeLimit`Skeleton",
+              DisplayFunction->(FrameBox[
+                
+                RowBox[{
+                 "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+                Background -> GrayLevel[0.75], 
+                BaseStyle -> {
+                 "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                  ShowStringCharacters -> False}, BaselinePosition -> 
+                Baseline, ContentPadding -> False, 
+                FrameMargins -> {{1, 1}, {1, 2}}, FrameStyle -> None, 
+                RoundingRadius -> 7]& )], ",", 
+             RowBox[{"{", 
+              RowBox[{
+              "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0",
+                ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+               ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+               ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+               ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+               ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+               ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+               ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+               ",", "0"}], "}"}]}], "}"}], ",", 
+           RowBox[{"{", 
+            TemplateBox[{"1"},
+             "OutputSizeLimit`Skeleton",
+             DisplayFunction->(FrameBox[
+               
+               RowBox[{
+                "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+               Background -> GrayLevel[0.75], 
+               BaseStyle -> {
+                "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                 ShowStringCharacters -> False}, BaselinePosition -> Baseline,
+                ContentPadding -> False, FrameMargins -> {{1, 1}, {1, 2}}, 
+               FrameStyle -> None, RoundingRadius -> 7]& )], "}"}], ",", 
+           RowBox[{"{", 
+            TemplateBox[{"1"},
+             "OutputSizeLimit`Skeleton",
+             DisplayFunction->(FrameBox[
+               
+               RowBox[{
+                "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+               Background -> GrayLevel[0.75], 
+               BaseStyle -> {
+                "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                 ShowStringCharacters -> False}, BaselinePosition -> Baseline,
+                ContentPadding -> False, FrameMargins -> {{1, 1}, {1, 2}}, 
+               FrameStyle -> None, RoundingRadius -> 7]& )], "}"}], ",", 
+           TemplateBox[{"44"},
+            "OutputSizeLimit`Skeleton",
+            DisplayFunction->(FrameBox[
+              RowBox[{"\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}],
+               Background -> GrayLevel[0.75], 
+              BaseStyle -> {
+               "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                ShowStringCharacters -> False}, BaselinePosition -> Baseline, 
+              ContentPadding -> False, FrameMargins -> {{1, 1}, {1, 2}}, 
+              FrameStyle -> None, RoundingRadius -> 7]& )], ",", 
+           RowBox[{"{", 
+            TemplateBox[{"1"},
+             "OutputSizeLimit`Skeleton",
+             DisplayFunction->(FrameBox[
+               
+               RowBox[{
+                "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+               Background -> GrayLevel[0.75], 
+               BaseStyle -> {
+                "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                 ShowStringCharacters -> False}, BaselinePosition -> Baseline,
+                ContentPadding -> False, FrameMargins -> {{1, 1}, {1, 2}}, 
+               FrameStyle -> None, RoundingRadius -> 7]& )], "}"}], ",", 
+           RowBox[{"{", 
+            TemplateBox[{"1"},
+             "OutputSizeLimit`Skeleton",
+             DisplayFunction->(FrameBox[
+               
+               RowBox[{
+                "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+               Background -> GrayLevel[0.75], 
+               BaseStyle -> {
+                "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                 ShowStringCharacters -> False}, BaselinePosition -> Baseline,
+                ContentPadding -> False, FrameMargins -> {{1, 1}, {1, 2}}, 
+               FrameStyle -> None, RoundingRadius -> 7]& )], "}"}], ",", 
+           RowBox[{"{", 
+            TemplateBox[{"1"},
+             "OutputSizeLimit`Skeleton",
+             DisplayFunction->(FrameBox[
+               
+               RowBox[{
+                "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+               Background -> GrayLevel[0.75], 
+               BaseStyle -> {
+                "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                 ShowStringCharacters -> False}, BaselinePosition -> Baseline,
+                ContentPadding -> False, FrameMargins -> {{1, 1}, {1, 2}}, 
+               FrameStyle -> None, RoundingRadius -> 7]& )], "}"}]}], "}"}],
+         Short[#, 5]& ],
+        BaseStyle->{Deployed -> False},
+        StripOnInput->False]},
+      {GridBox[{
+         {
+          TagBox[
+           TooltipBox[
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource[
+                "FEStrings", "sizeBriefExplanation"], StandardForm],
+               ImageSizeCache->{58., {2., 8.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarCategory",
+             StripOnInput->False],
+            StyleBox[
+             DynamicBox[
+              ToBoxes[
+               FEPrivate`FrontEndResource["FEStrings", "sizeExplanation"], 
+               StandardForm]], DynamicUpdating -> True, StripOnInput -> 
+             False]],
+           Annotation[#, 
+            Style[
+             Dynamic[
+              FEPrivate`FrontEndResource["FEStrings", "sizeExplanation"]], 
+             DynamicUpdating -> True], "Tooltip"]& ], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowLess"], 
+                StandardForm],
+               ImageSizeCache->{50., {0., 8.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowLess"], 
+                StandardForm]],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, 25}],
+           Appearance->None,
+           
+           ButtonFunction:>OutputSizeLimit`ButtonFunction[
+            OutputSizeLimit`Defer, 66, 16868271649372999525, 5/2],
+           Enabled->True,
+           Evaluator->Automatic,
+           Method->"Queued"], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowMore"], 
+                StandardForm],
+               ImageSizeCache->{56., {0., 8.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowMore"], 
+                StandardForm]],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, 25}],
+           Appearance->None,
+           
+           ButtonFunction:>OutputSizeLimit`ButtonFunction[
+            OutputSizeLimit`Defer, 66, 16868271649372999525, 5 2],
+           Enabled->True,
+           Evaluator->Automatic,
+           Method->"Queued"], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowAll"], 
+                StandardForm],
+               ImageSizeCache->{42., {0., 8.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowAll"], 
+                StandardForm]],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, 25}],
+           Appearance->None,
+           
+           ButtonFunction:>OutputSizeLimit`ButtonFunction[
+            OutputSizeLimit`Defer, 66, 16868271649372999525, Infinity],
+           Enabled->True,
+           Evaluator->Automatic,
+           Method->"Queued"], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeChangeLimit"], 
+                StandardForm],
+               ImageSizeCache->{74., {0., 8.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeChangeLimit"], 
+                StandardForm],
+               ImageSizeCache->{74., {0., 8.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, 25}],
+           Appearance->None,
+           ButtonFunction:>FrontEndExecute[{
+              FrontEnd`SetOptions[
+              FrontEnd`$FrontEnd, 
+               FrontEnd`PreferencesSettings -> {"Page" -> "Evaluation"}], 
+              FrontEnd`FrontEndToken["PreferencesDialog"]}],
+           Evaluator->None,
+           Method->"Preemptive"]}
+        },
+        AutoDelete->False,
+        FrameStyle->GrayLevel[0.85],
+        GridBoxDividers->{"Columns" -> {False, {True}}},
+        GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+        GridBoxSpacings->{"Columns" -> {{2}}}]}
+     },
+     DefaultBaseStyle->"Column",
+     GridBoxAlignment->{
+      "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+       "RowsIndexed" -> {}},
+     GridBoxDividers->{
+      "Columns" -> {{False}}, "ColumnsIndexed" -> {}, "Rows" -> {{False}}, 
+       "RowsIndexed" -> {}},
+     GridBoxItemSize->{
+      "Columns" -> {{Automatic}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+       "RowsIndexed" -> {}},
+     GridBoxSpacings->{"Columns" -> {
+         Offset[0.27999999999999997`], {
+          Offset[0.5599999999999999]}, 
+         Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+         Offset[0.2], 
+         Offset[1.2], {
+          Offset[0.4]}, 
+         Offset[0.2]}, "RowsIndexed" -> {}}],
+    Background->RGBColor[0.9657, 0.9753, 0.9802],
+    FrameMargins->{{12, 12}, {0, 15}},
+    FrameStyle->GrayLevel[0.85],
+    RoundingRadius->5,
+    StripOnInput->False],
+   Deploy,
+   DefaultBaseStyle->"Deploy"],
+  Out[66]]], "Output",
+ CellChangeTimes->{{3.6764174037302103`*^9, 3.676417423450252*^9}, 
+   3.6764176402838697`*^9, 3.676735327700911*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"labels", " ", "=", " ", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"ArrayPlot", "[", 
+      RowBox[{"#", ",", " ", 
+       RowBox[{"ImageSize", "\[Rule]", "100"}]}], "]"}], "&"}], "/@", 
+    "diff2"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.6764176536823273`*^9, 3.6764176545620403`*^9}, 
+   3.676735334476686*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"Table", "[", 
+   RowBox[{
+    RowBox[{"catable", "[", 
+     RowBox[{"[", "i", "]"}], "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"i", ",", 
+      RowBox[{"Length", "[", "catable", "]"}]}], "}"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.676586686486514*^9, 3.6765867080869703`*^9}}],
+
+Cell[BoxData[
+ InterpretationBox[
+  TagBox[
+   FrameBox[GridBox[{
+      {
+       ItemBox[
+        TagBox[
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+              "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "1", ",", "0",
+                ",", "0", ",", "0", ",", "1", ",", "0", ",", "0", ",", "0", 
+               ",", "1", ",", "0", ",", "0", ",", "1", ",", "0", ",", "1", 
+               ",", "1", ",", "0", ",", "1", ",", "1", ",", "0", ",", "0", 
+               ",", "0", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1", 
+               ",", "0", ",", "0", ",", "1", ",", "1", ",", "0", ",", "0", 
+               ",", "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1", 
+               ",", "1", ",", "1", ",", "0", ",", "1", ",", "1", ",", "1", 
+               ",", "1"}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+              "0", ",", "1", ",", "1", ",", "1", ",", "0", ",", "0", ",", "0",
+                ",", "1", ",", "0", ",", "0", ",", "0", ",", "1", ",", "0", 
+               ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+               ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "1", 
+               ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+               ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+               ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+               ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+               ",", "0"}], "}"}], ",", 
+             TemplateBox[{"48"},
+              "OutputSizeLimit`Skeleton",
+              DisplayFunction->(FrameBox[
+                
+                RowBox[{
+                 "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+                Background -> GrayLevel[0.75], 
+                BaseStyle -> {
+                 "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                  ShowStringCharacters -> False}, BaselinePosition -> 
+                Baseline, ContentPadding -> False, 
+                FrameMargins -> {{1, 1}, {1, 2}}, FrameStyle -> None, 
+                RoundingRadius -> 7]& )], ",", 
+             RowBox[{"{", 
+              RowBox[{
+              "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "1", ",", "0",
+                ",", "0", ",", "0", ",", "1", ",", "0", ",", "0", ",", "0", 
+               ",", "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1", 
+               ",", "1", ",", "1", ",", "1", ",", "1", ",", "0", ",", "0", 
+               ",", "0", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1", 
+               ",", "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1", 
+               ",", "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1", 
+               ",", "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1", 
+               ",", "1"}], "}"}]}], "}"}], ",", 
+           RowBox[{"{", 
+            TemplateBox[{"1"},
+             "OutputSizeLimit`Skeleton",
+             DisplayFunction->(FrameBox[
+               
+               RowBox[{
+                "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+               Background -> GrayLevel[0.75], 
+               BaseStyle -> {
+                "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                 ShowStringCharacters -> False}, BaselinePosition -> Baseline,
+                ContentPadding -> False, FrameMargins -> {{1, 1}, {1, 2}}, 
+               FrameStyle -> None, RoundingRadius -> 7]& )], "}"}], ",", 
+           RowBox[{"{", 
+            TemplateBox[{"1"},
+             "OutputSizeLimit`Skeleton",
+             DisplayFunction->(FrameBox[
+               
+               RowBox[{
+                "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+               Background -> GrayLevel[0.75], 
+               BaseStyle -> {
+                "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                 ShowStringCharacters -> False}, BaselinePosition -> Baseline,
+                ContentPadding -> False, FrameMargins -> {{1, 1}, {1, 2}}, 
+               FrameStyle -> None, RoundingRadius -> 7]& )], "}"}], ",", 
+           TemplateBox[{"249"},
+            "OutputSizeLimit`Skeleton",
+            DisplayFunction->(FrameBox[
+              RowBox[{"\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}],
+               Background -> GrayLevel[0.75], 
+              BaseStyle -> {
+               "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                ShowStringCharacters -> False}, BaselinePosition -> Baseline, 
+              ContentPadding -> False, FrameMargins -> {{1, 1}, {1, 2}}, 
+              FrameStyle -> None, RoundingRadius -> 7]& )], ",", 
+           RowBox[{"{", 
+            TemplateBox[{"1"},
+             "OutputSizeLimit`Skeleton",
+             DisplayFunction->(FrameBox[
+               
+               RowBox[{
+                "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+               Background -> GrayLevel[0.75], 
+               BaseStyle -> {
+                "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                 ShowStringCharacters -> False}, BaselinePosition -> Baseline,
+                ContentPadding -> False, FrameMargins -> {{1, 1}, {1, 2}}, 
+               FrameStyle -> None, RoundingRadius -> 7]& )], "}"}], ",", 
+           RowBox[{"{", 
+            TemplateBox[{"1"},
+             "OutputSizeLimit`Skeleton",
+             DisplayFunction->(FrameBox[
+               
+               RowBox[{
+                "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+               Background -> GrayLevel[0.75], 
+               BaseStyle -> {
+                "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                 ShowStringCharacters -> False}, BaselinePosition -> Baseline,
+                ContentPadding -> False, FrameMargins -> {{1, 1}, {1, 2}}, 
+               FrameStyle -> None, RoundingRadius -> 7]& )], "}"}], ",", 
+           RowBox[{"{", 
+            TemplateBox[{"1"},
+             "OutputSizeLimit`Skeleton",
+             DisplayFunction->(FrameBox[
+               
+               RowBox[{
+                "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+               Background -> GrayLevel[0.75], 
+               BaseStyle -> {
+                "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                 ShowStringCharacters -> False}, BaselinePosition -> Baseline,
+                ContentPadding -> False, FrameMargins -> {{1, 1}, {1, 2}}, 
+               FrameStyle -> None, RoundingRadius -> 7]& )], "}"}]}], "}"}],
+         Short[#, 5]& ],
+        BaseStyle->{Deployed -> False},
+        StripOnInput->False]},
+      {GridBox[{
+         {
+          TagBox[
+           TooltipBox[
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource[
+                "FEStrings", "sizeBriefExplanation"], StandardForm],
+               ImageSizeCache->{58., {2., 8.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarCategory",
+             StripOnInput->False],
+            StyleBox[
+             DynamicBox[
+              ToBoxes[
+               FEPrivate`FrontEndResource["FEStrings", "sizeExplanation"], 
+               StandardForm]], DynamicUpdating -> True, StripOnInput -> 
+             False]],
+           Annotation[#, 
+            Style[
+             Dynamic[
+              FEPrivate`FrontEndResource["FEStrings", "sizeExplanation"]], 
+             DynamicUpdating -> True], "Tooltip"]& ], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowLess"], 
+                StandardForm],
+               ImageSizeCache->{50., {0., 8.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowLess"], 
+                StandardForm],
+               ImageSizeCache->{50., {0., 8.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, 25}],
+           Appearance->None,
+           
+           ButtonFunction:>OutputSizeLimit`ButtonFunction[
+            OutputSizeLimit`Defer, 23, 16867304642058538517, 5/2],
+           Enabled->True,
+           Evaluator->Automatic,
+           Method->"Queued"], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowMore"], 
+                StandardForm],
+               ImageSizeCache->{56., {0., 8.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowMore"], 
+                StandardForm]],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, 25}],
+           Appearance->None,
+           
+           ButtonFunction:>OutputSizeLimit`ButtonFunction[
+            OutputSizeLimit`Defer, 23, 16867304642058538517, 5 2],
+           Enabled->True,
+           Evaluator->Automatic,
+           Method->"Queued"], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowAll"], 
+                StandardForm],
+               ImageSizeCache->{42., {0., 8.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowAll"], 
+                StandardForm]],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, 25}],
+           Appearance->None,
+           ButtonFunction:>OutputSizeLimit`ButtonFunction[
+            OutputSizeLimit`Defer, 23, 16867304642058538517, Infinity],
+           Enabled->True,
+           Evaluator->Automatic,
+           Method->"Queued"], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeChangeLimit"], 
+                StandardForm],
+               ImageSizeCache->{74., {0., 8.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeChangeLimit"], 
+                StandardForm],
+               ImageSizeCache->{74., {0., 8.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, 25}],
+           Appearance->None,
+           ButtonFunction:>FrontEndExecute[{
+              FrontEnd`SetOptions[
+              FrontEnd`$FrontEnd, 
+               FrontEnd`PreferencesSettings -> {"Page" -> "Evaluation"}], 
+              FrontEnd`FrontEndToken["PreferencesDialog"]}],
+           Evaluator->None,
+           Method->"Preemptive"]}
+        },
+        AutoDelete->False,
+        FrameStyle->GrayLevel[0.85],
+        GridBoxDividers->{"Columns" -> {False, {True}}},
+        GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+        GridBoxSpacings->{"Columns" -> {{2}}}]}
+     },
+     DefaultBaseStyle->"Column",
+     GridBoxAlignment->{
+      "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+       "RowsIndexed" -> {}},
+     GridBoxDividers->{
+      "Columns" -> {{False}}, "ColumnsIndexed" -> {}, "Rows" -> {{False}}, 
+       "RowsIndexed" -> {}},
+     GridBoxItemSize->{
+      "Columns" -> {{Automatic}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+       "RowsIndexed" -> {}},
+     GridBoxSpacings->{"Columns" -> {
+         Offset[0.27999999999999997`], {
+          Offset[0.5599999999999999]}, 
+         Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+         Offset[0.2], 
+         Offset[1.2], {
+          Offset[0.4]}, 
+         Offset[0.2]}, "RowsIndexed" -> {}}],
+    Background->RGBColor[0.9657, 0.9753, 0.9802],
+    FrameMargins->{{12, 12}, {0, 15}},
+    FrameStyle->GrayLevel[0.85],
+    RoundingRadius->5,
+    StripOnInput->False],
+   Deploy,
+   DefaultBaseStyle->"Deploy"],
+  Out[23]]], "Output",
+ CellChangeTimes->{3.676586792198146*^9, 3.676586844084914*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"a1", " ", "=", " ", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"ArrayPlot", "[", 
+      RowBox[{
+       RowBox[{"catable", "[", 
+        RowBox[{"[", "#", "]"}], "]"}], ",", 
+       RowBox[{"PlotLabel", "\[Rule]", " ", "#"}]}], "]"}], "&"}], "/@", 
+    RowBox[{"Range", "[", 
+     RowBox[{"Length", "[", "catable", "]"}], "]"}]}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.676586742991802*^9, 3.6765867503426237`*^9}, {
+  3.676587468932269*^9, 3.676587472162528*^9}, {3.676674522798944*^9, 
+  3.676674566357855*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"diff3", " ", "=", " ", 
+  RowBox[{"Table", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"Abs", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"catable5", "[", 
+          RowBox[{"[", "i", "]"}], "]"}], "[", 
+         RowBox[{"[", "#", "]"}], "]"}], "-", 
+        RowBox[{
+         RowBox[{"catable6", "[", 
+          RowBox[{"[", "i", "]"}], "]"}], "[", 
+         RowBox[{"[", "#", "]"}], "]"}]}], "]"}], "&"}], "/@", 
+     RowBox[{"Range", "[", "48", "]"}]}], ",", 
+    RowBox[{"{", 
+     RowBox[{"i", ",", 
+      RowBox[{"Length", "[", "catable5", "]"}]}], "}"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.676417680359606*^9, 3.6764177028726463`*^9}}],
+
+Cell[BoxData[
+ InterpretationBox[
+  TagBox[
+   FrameBox[GridBox[{
+      {
+       ItemBox[
+        TagBox[
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+              "0", ",", "0", ",", "0", ",", "0", ",", "1", ",", "0", ",", "0",
+                ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+               ",", "0", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1", 
+               ",", "0", ",", "0", ",", "1", ",", "0", ",", "0", ",", "0", 
+               ",", "0", ",", "1", ",", "0", ",", "0", ",", "1", ",", "1", 
+               ",", "0", ",", "0", ",", "1", ",", "1", ",", "0", ",", "0", 
+               ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "1", 
+               ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+               ",", "0"}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+              "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0",
+                ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+               ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+               ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+               ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+               ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+               ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+               ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+               ",", "0"}], "}"}], ",", 
+             TemplateBox[{"45"},
+              "OutputSizeLimit`Skeleton",
+              DisplayFunction->(FrameBox[
+                
+                RowBox[{
+                 "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+                Background -> GrayLevel[0.75], 
+                BaseStyle -> {
+                 "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                  ShowStringCharacters -> False}, BaselinePosition -> 
+                Baseline, ContentPadding -> False, 
+                FrameMargins -> {{1, 1}, {1, 2}}, FrameStyle -> None, 
+                RoundingRadius -> 7]& )], ",", 
+             RowBox[{"{", 
+              RowBox[{
+              "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0",
+                ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+               ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+               ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+               ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+               ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+               ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+               ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+               ",", "0"}], "}"}]}], "}"}], ",", 
+           RowBox[{"{", 
+            TemplateBox[{"1"},
+             "OutputSizeLimit`Skeleton",
+             DisplayFunction->(FrameBox[
+               
+               RowBox[{
+                "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+               Background -> GrayLevel[0.75], 
+               BaseStyle -> {
+                "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                 ShowStringCharacters -> False}, BaselinePosition -> Baseline,
+                ContentPadding -> False, FrameMargins -> {{1, 1}, {1, 2}}, 
+               FrameStyle -> None, RoundingRadius -> 7]& )], "}"}], ",", 
+           RowBox[{"{", 
+            TemplateBox[{"1"},
+             "OutputSizeLimit`Skeleton",
+             DisplayFunction->(FrameBox[
+               
+               RowBox[{
+                "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+               Background -> GrayLevel[0.75], 
+               BaseStyle -> {
+                "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                 ShowStringCharacters -> False}, BaselinePosition -> Baseline,
+                ContentPadding -> False, FrameMargins -> {{1, 1}, {1, 2}}, 
+               FrameStyle -> None, RoundingRadius -> 7]& )], "}"}], ",", 
+           TemplateBox[{"44"},
+            "OutputSizeLimit`Skeleton",
+            DisplayFunction->(FrameBox[
+              RowBox[{"\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}],
+               Background -> GrayLevel[0.75], 
+              BaseStyle -> {
+               "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                ShowStringCharacters -> False}, BaselinePosition -> Baseline, 
+              ContentPadding -> False, FrameMargins -> {{1, 1}, {1, 2}}, 
+              FrameStyle -> None, RoundingRadius -> 7]& )], ",", 
+           RowBox[{"{", 
+            TemplateBox[{"1"},
+             "OutputSizeLimit`Skeleton",
+             DisplayFunction->(FrameBox[
+               
+               RowBox[{
+                "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+               Background -> GrayLevel[0.75], 
+               BaseStyle -> {
+                "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                 ShowStringCharacters -> False}, BaselinePosition -> Baseline,
+                ContentPadding -> False, FrameMargins -> {{1, 1}, {1, 2}}, 
+               FrameStyle -> None, RoundingRadius -> 7]& )], "}"}], ",", 
+           RowBox[{"{", 
+            TemplateBox[{"1"},
+             "OutputSizeLimit`Skeleton",
+             DisplayFunction->(FrameBox[
+               
+               RowBox[{
+                "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+               Background -> GrayLevel[0.75], 
+               BaseStyle -> {
+                "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                 ShowStringCharacters -> False}, BaselinePosition -> Baseline,
+                ContentPadding -> False, FrameMargins -> {{1, 1}, {1, 2}}, 
+               FrameStyle -> None, RoundingRadius -> 7]& )], "}"}], ",", 
+           RowBox[{"{", 
+            TemplateBox[{"1"},
+             "OutputSizeLimit`Skeleton",
+             DisplayFunction->(FrameBox[
+               
+               RowBox[{
+                "\" \[CenterEllipsis]\"", #, "\"\[CenterEllipsis] \""}], 
+               Background -> GrayLevel[0.75], 
+               BaseStyle -> {
+                "Deploy", FontColor -> GrayLevel[1], FontSize -> Smaller, 
+                 ShowStringCharacters -> False}, BaselinePosition -> Baseline,
+                ContentPadding -> False, FrameMargins -> {{1, 1}, {1, 2}}, 
+               FrameStyle -> None, RoundingRadius -> 7]& )], "}"}]}], "}"}],
+         Short[#, 5]& ],
+        BaseStyle->{Deployed -> False},
+        StripOnInput->False]},
+      {GridBox[{
+         {
+          TagBox[
+           TooltipBox[
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource[
+                "FEStrings", "sizeBriefExplanation"], StandardForm],
+               ImageSizeCache->{58., {2., 8.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarCategory",
+             StripOnInput->False],
+            StyleBox[
+             DynamicBox[
+              ToBoxes[
+               FEPrivate`FrontEndResource["FEStrings", "sizeExplanation"], 
+               StandardForm]], DynamicUpdating -> True, StripOnInput -> 
+             False]],
+           Annotation[#, 
+            Style[
+             Dynamic[
+              FEPrivate`FrontEndResource["FEStrings", "sizeExplanation"]], 
+             DynamicUpdating -> True], "Tooltip"]& ], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowLess"], 
+                StandardForm],
+               ImageSizeCache->{50., {0., 8.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowLess"], 
+                StandardForm],
+               ImageSizeCache->{50., {0., 8.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, 25}],
+           Appearance->None,
+           
+           ButtonFunction:>OutputSizeLimit`ButtonFunction[
+            OutputSizeLimit`Defer, 70, 16868271649372999525, 5/2],
+           Enabled->True,
+           Evaluator->Automatic,
+           Method->"Queued"], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowMore"], 
+                StandardForm],
+               ImageSizeCache->{56., {0., 8.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowMore"], 
+                StandardForm]],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, 25}],
+           Appearance->None,
+           
+           ButtonFunction:>OutputSizeLimit`ButtonFunction[
+            OutputSizeLimit`Defer, 70, 16868271649372999525, 5 2],
+           Enabled->True,
+           Evaluator->Automatic,
+           Method->"Queued"], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowAll"], 
+                StandardForm],
+               ImageSizeCache->{42., {0., 8.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowAll"], 
+                StandardForm]],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, 25}],
+           Appearance->None,
+           ButtonFunction:>OutputSizeLimit`ButtonFunction[
+            OutputSizeLimit`Defer, 70, 16868271649372999525, Infinity],
+           Enabled->True,
+           Evaluator->Automatic,
+           Method->"Queued"], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeChangeLimit"], 
+                StandardForm],
+               ImageSizeCache->{74., {0., 8.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeChangeLimit"], 
+                StandardForm]],
+              StripOnInput->False,
+              DynamicUpdating->True], "SuggestionsBarControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, 25}],
+           Appearance->None,
+           ButtonFunction:>FrontEndExecute[{
+              FrontEnd`SetOptions[
+              FrontEnd`$FrontEnd, 
+               FrontEnd`PreferencesSettings -> {"Page" -> "Evaluation"}], 
+              FrontEnd`FrontEndToken["PreferencesDialog"]}],
+           Evaluator->None,
+           Method->"Preemptive"]}
+        },
+        AutoDelete->False,
+        FrameStyle->GrayLevel[0.85],
+        GridBoxDividers->{"Columns" -> {False, {True}}},
+        GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+        GridBoxSpacings->{"Columns" -> {{2}}}]}
+     },
+     DefaultBaseStyle->"Column",
+     GridBoxAlignment->{
+      "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+       "RowsIndexed" -> {}},
+     GridBoxDividers->{
+      "Columns" -> {{False}}, "ColumnsIndexed" -> {}, "Rows" -> {{False}}, 
+       "RowsIndexed" -> {}},
+     GridBoxItemSize->{
+      "Columns" -> {{Automatic}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+       "RowsIndexed" -> {}},
+     GridBoxSpacings->{"Columns" -> {
+         Offset[0.27999999999999997`], {
+          Offset[0.5599999999999999]}, 
+         Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+         Offset[0.2], 
+         Offset[1.2], {
+          Offset[0.4]}, 
+         Offset[0.2]}, "RowsIndexed" -> {}}],
+    Background->RGBColor[0.9657, 0.9753, 0.9802],
+    FrameMargins->{{12, 12}, {0, 15}},
+    FrameStyle->GrayLevel[0.85],
+    RoundingRadius->5,
+    StripOnInput->False],
+   Deploy,
+   DefaultBaseStyle->"Deploy"],
+  Out[70]]], "Output",
+ CellChangeTimes->{3.676417705661581*^9, 3.6764192395939817`*^9, 
+  3.676586862237235*^9, 3.676587483025516*^9, 3.67666985614924*^9, 
+  3.676674302078883*^9, 3.676735341296617*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"a2", " ", "=", " ", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"ArrayPlot", "[", 
+      RowBox[{
+       RowBox[{"diff3", "[", 
+        RowBox[{"[", "#", "]"}], "]"}], ",", 
+       RowBox[{"PlotLabel", "\[Rule]", "#"}]}], "]"}], "&"}], "/@", 
+    RowBox[{"Range", "[", 
+     RowBox[{"Length", "[", "diff3", "]"}], "]"}]}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.676417727573825*^9, 3.676417728012628*^9}, {
+  3.6764178055013227`*^9, 3.676417830227738*^9}, {3.6765874911727962`*^9, 
+  3.676587493498612*^9}, {3.6766741637892714`*^9, 3.676674192419722*^9}, {
+  3.6766745091110477`*^9, 3.676674516743222*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"Transpose", "[", 
+   RowBox[{"{", 
+    RowBox[{"a1", ",", "a2"}], "}"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.676418276412992*^9, 3.676418284172027*^9}, {
+   3.676735289069172*^9, 3.676735295682748*^9}, 3.6767353614527893`*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     GraphicsBox[RasterBox[CompressedData["
+1:eJzty8ENwCAMBMG9dEIL0ElKoIH0/wMMhBZ4nKWVhcWk+r31AUov94Q0GmvN
+fnFiH5GFhYWFhYWFhcUVgl8QEwfFns2PSzRXVQlg
+       "], {{0, 0}, {50, 51}}, {0, 
+       1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["1", TraditionalForm]], ",", 
+     GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmJiYGAwAGIjIGYcBaNgFIyCUTAKRsEoGAUEAKLJxMAAbkAxQEUZ
+oBhFFQA62wte
+       "], {{0, 0}, {50, 48}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["1", TraditionalForm]]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     GraphicsBox[RasterBox[CompressedData["
+1:eJy91MENwyAQRNGZdJIWkk5SghtI/7cQ2+Dd+OD9h2AJgWDgIWG4L+/XcpP0
+bOXRijU+t6/Xe7O3nUIOvWE0JVPo/4QxoTC7RhgTsbdGGBMhUiSMiWO5KmFM
+jGllwpjo6TphTMRTqRHGhDBhTAgTI1AmNIEwJoQJY0KYiKM1QhMIYyJfxgph
+TAgTxoQwkVYtEZpAGBM/D3yBMCa2IyHEeqcQ8c3HH/iaWPeEiG5cEmMj2o38
+RJyJsZEtf3qFdCyy36K+kVZ9AEmqB20=
+       "], {{0, 0}, {50, 51}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["2", TraditionalForm]], ",", 
+     GraphicsBox[RasterBox[CompressedData["
+1:eJzt0MEJgDAMBdAfN3EDcRRH6ALuf7OItj8RMQdzECOmlJqfVxzLupQBwFRr
+riXtwf4ei1oF1MT7XqLClIBOJ5FEEl8gmIki8FviMjyA6Ikk3id4ahRBvaGE
+CngIPdtBmM5nwnS6fpSPsHc6J94S0EnwUfsAujmfbzIfCeQ=
+       "], {{0, 0}, {50, 
+       48}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["2", TraditionalForm]]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     GraphicsBox[RasterBox[CompressedData["
+1:eJxtVNl1wzAMI7tJV2g36QhZoPv/tbEN4qD84sSRJQEEAX2+fn9eH1X1/X9/
+1fvqfn9dD/fT9dscruddX9f13BzATK69b6x8XnGrmpmtKLISn+cuzixDAfKQ
+8jpKdyEbrCR73zRQgGzspWxVo4THva8pRXBHmdX+bnohxJ0NKYhSA+4orM/r
+WB13Ns/UpZR1XNhgKpujG3eiNManDpM//owV77ESZ5LURuF4GUIJuBUmTmhH
+IHgUxnEJlNswClNSgdDOX1uYMWJ6TigcTwQxkcu3zKGWrwOKmcsRlriQSdEc
+wfZQ+ToDJSdKLZRROM6YrEOsh8h6Hb3q8BSPw+yAizqGz6TG6yDfQNHUeB0e
+ak5oIcOl4Qj3ppDR3psjwpvcJHqhoVZNdmMjUGH4MKIh0BGuSUcdO1BpEhFk
+IUgdRFFBAoGGcxQR5BioyAaYbpXMcGlF+CqPHhrOE6iHTtRxMpxk8HQwnBII
+Da1X08iVQCqrxasINiRWNBVpFYH2FoaKYxXKkiiMybRUGshLW2joYMr2Alhb
+aN0XBwNIVUNrH+3hYG6Po0Ajg8GuPwW4B2g=
+       "], {{0, 0}, {50, 51}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["3", TraditionalForm]], ",", 
+     GraphicsBox[RasterBox[CompressedData["
+1:eJxtlettxDAMg6lu0g2KjtIRboHb/18DnEWRlJEXYjui9FlSvl/vv9cXgJ/n
++n2uqkIen/M5OHQG0A+u5AL5tlfShBmq/S1k5UcDnNWbedje6Cmzx6tylaKl
+iaba16MLjaXXlH5vKha2xVehMTAAW9fEEwdV9IVxEToMkqx0FYV+415wlbP6
+jM0SOpW0P2MlY4JLxNVDYyMKdGrvqYyv5HVKs4XOxFWSkjp7+eKy42cLfV4i
+N+rEl8nhdHFTMdDJVt+Ib0oWobDKiWb7FgplNhQfXCv9trEwv+eNRRFV7Xlc
+bGgVa4LnfPIzr7PBLRtTxSvO3g4W9cywOkyDty7qTcQ15BGwkTUTKd/Rezya
+iAvoJUmiYjJMUCP+HwRSGeQKubiBuDSGFr1wGZNp03XN9WtjmIRbZLIbd9Qr
+4WCe7iSKjqps2ulNVjCop7f/uCWcqVQXiZ3elG+NSHwaINmVNHqhOKlC9PxB
+iwHt4W1T0Jep6BZ1ktEttoL463Vw3DTVixJAp+KYVg/AeCTXx5vn+AdGUgaK
+
+       "], {{0, 0}, {50, 48}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["3", TraditionalForm]]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     GraphicsBox[RasterBox[CompressedData["
+1:eJzt1rENgDAMAMGHTVgBNmGELMD+HUEOiaGBAf4lSyl8cpulHHuZga3OWmcy
+MzMzs7tffyMe729CXmIQ0sILJMIgWRKMDi5Cu9YmJCFPKqUL0Q==
+       "], {{0, 0}, {50, 
+       51}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["4", TraditionalForm]], ",", 
+     GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmJiYGAwAGIjIGYcBaNgFIyCUTAKRsEoGAhAVCuEAYVNWAsDsiIG
+hAEMSArQNDAgZBkQJAOSTgaINga4AVABuCgyDWIAADFMC0Q=
+       "], {{0, 0}, {50, 
+       48}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["4", TraditionalForm]]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     GraphicsBox[RasterBox[CompressedData["
+1:eJx9lNt1wzAMQ8lskhXaTTpCFsj+f21ti8QF5cQntizxAYKgn6/3z+sREd9/
+/684fhl89uJ/mXWXo7wu2B1XwumyWRtxWiQ2kKNsOmmWYW/WiW510nvItrXu
+OSDXiW61f8J78hXNhrh2qA1fsEHKW76yLdC+D3xJYMBWeAJcY6kDQRUsl0t3
+20EBOv3TTgwDmng1b55YG+GSKJX0E3azDagqBIfdHVVAwFARVA3iSWiUs3WS
+egM41YNuIeV6G+OMLTYW9SZ9x+xAQrVcKrOk7tRot8OmbJj+pcXKJHRt+k+N
+buOWu9TSYnu6envSXXM3upbUTkhIa6je7u7IPSXik544BeNo4YXI1WaME8Ly
+OrHDYs/HgrWrc1RBWJyQAYblawtJMVJXPOXYoFlq4WStOQEztXwEqqIxpS5H
+4X18s7cfCPAePYOY0hFF6PE6kbgNWvCmhC7dmW/BBwN5YskFqY7Oo6NgZJdf
+4uqbDu7SvtRIh7AcVa7W6L/krUrKFlxWNu2IHp+4suf5HLXCvao/Fr8kzgTa
+
+       "], {{0, 0}, {50, 51}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["5", TraditionalForm]], ",", 
+     GraphicsBox[RasterBox[CompressedData["
+1:eJx1ldmRAkEMQ2Uy2Qy2CIUQSID8/5bL7Sd1LzCFmfb4kGTzc3/c7hdJv8/r
++rxUn5fe79enzZel4jte+ngskxF4SxaBCatvKW+Vm1pnOJ3vb47ly/x8nJ3S
+FGuI5GWx0vSA3uke1jqp8cFPJ8BKMRCDDc0xnRdJxEHGhcK5hsYgYQ4dhz60
+5NHBPGpsiL8NcGd8dRFlOwJB4ch5sZOgJYUjZ6g5szCf0HYHCNVHvhC5KIGt
+qQkMUEUJ7HOpwlAHJNFD0c/E5fSOdNzPhxXaPWyC6Zem3MM3QVZLuVaFrnMA
+vPAg9JB6y2Lz6/W2GE8DFxKh/B2UgEWRq6MRkMNa8PERFUl4HFjrpGZfmgfq
+tgKmSb05R7DsYhXKgXdYHP+cJV8Mm0aPs2RznhrdQaQs0KmZcaqKXaLdxBKw
+KUacVKvhnjubpy4XFin89RkrDvQ/miZXLuutSJRkQ0UXhyyYz6gbOlNKo5VR
+a3uEROoclYPbpahX6qguMZdF1OKv1SC0jclV/QF1AQjm
+       "], {{0, 0}, {50, 48}}, {
+       0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["5", TraditionalForm]]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     GraphicsBox[RasterBox[CompressedData["
+1:eJzt1tsNgzAMBdB7u0lXKJt0BBbo/n+NIM5DqWtbFSBRkAwRJBywkM19fj3n
+G4ApxSMFQZYglv26deMyQa5IsJnVj8uEVnAqreBTGFe4vQJur9QsuxVGFeyg
+9F+MS+Gl/JuiViVV0auSqui171JOqpjdYlDsOj4oRrc4RjHr+KBY3eKDYneL
+nxUgmjHKisi7QJLsVNbmGVHqb8NXBXUgWctnsOQi3wQ56qOnwxtXlwmU
+       "], {{0, 0}, {
+       50, 51}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["6", TraditionalForm]], ",", 
+     GraphicsBox[RasterBox[CompressedData["
+1:eJzt1c0NgCAMBeBXN3ED4yiO4ALuf/MHQaRK+w5GD0JMSFr4iFRpx2kYGwDd
+8vQom6w9ttM4JYSco2+hPC2fnhJIRWgFinlAAa0IrYBWhFZAK8IqecU4FfmV
+LylXX3JdUdVvKqAVPd9Ubv5Kv/KOYt0WWrmp/ooCWimr36E4br5z992vxfsi
+FXWWpqLP0lL2MKHEqF8JAgglphDKkVBV1CAp+wYkbiSPhnVmG40G9w==
+       "], {{0, 0}, {
+       50, 48}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["6", TraditionalForm]]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     GraphicsBox[RasterBox[CompressedData["
+1:eJxllNt1wkAMRKV0khZIJymBBtL/Hw7W3BktcMD2evWax34//36fX1X1c/0e
+16+vj/7ej/X/uZ7qflnzrPu+v/pTdN87egIndpK9392XSd1TYdIoxPfTULsp
+VaiiZE/KKUL+GOkuoIZVlU7JHyNlrhYiyhP5tWNWeV0xtmCsnIZVo2yYgXFN
+E+DqBgAM45pmJq64AQDBeUzTNN0KBIQ+81d7k3hg3UXrYxpE4MBVCIn4ycrs
+Y10ggpGerMxcdzGBXby3CHK9I9/idfFPHbOLZgKi5J86ZlesJETJvxEDX+Ek
+TIxf5SQYjTFILmH3qhBGQzMuvltYneKgOEcQS50VRCKmMc/0dUwyATaN/eYg
+0sgfRpTzJcWSacrZyjXMi/QcaezOihrmhY4Fmi/OYqlYWLZuXNxMmMxT2pWo
+gy6XyTyliUAd0kW0tKY8uCE5xsR2AU904VlRCLZagl3nyWmwYjfmWZ0IklCI
+dxulQ4ZMKVUTpw5oFSwYyg6OnkInEWyCAxQzl77K48UiXArorBPBJtgOlOzZ
+HGkXwWa5pK7+6CCHSgeirthKEuBZDsTYblZyxoa0gqodFejhuHC0VY1wEz37
+yuxb1Wp3o7YUHXCF6OwfJBXkGS5k7LMBby3y5FRbC5CZ9iAvrHhdXkLHBvg=
+
+       "], {{0, 0}, {50, 51}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["7", TraditionalForm]], ",", 
+     GraphicsBox[RasterBox[CompressedData["
+1:eJxtlNtVw0AMRCU6oQMOpVACDdD/HxB75t4N5IBjr1ez0jzy+vn18fkyM28/
+/+/z+9nH3+xuL4/le/36/Dzt9Zm9Hq6Xvex9fdxcm1bFgR5dcs2ZQb+LA50d
+F0SxNi2pONDdeq1ObyYzpLni5+29yk1nSHdzTnNPvLrpDOnuaZo0PCH7mOEJ
+f4dN0aHrdLt/ptmcRWH1uUHDUZ5qAgpPvGzhaWjD6+AteHVb2/A6eOiK28oV
+VAcdlfS++uOmah5VTJH1F2NIqWzw3lx18p7UMgXk4ErpKSMCF/NznqMErVrI
+Eft0wiblDQ06t6//JyE05I0iJa9oeF8pi58Fs6AtZ6BLqBRM2lI9IVNemspm
+WChYBWMRXdPRZrAKxlIq645qa6toyhixyrVLmSAWSSEB0KynCZRqjNaFgMch
+NVH9nbHF27b1jrC6q6DiLZbgexnmsBuEiWclvx1gt+2c4hmr0cHYtNnfraP6
+gYCjA5yhfOKAQ2EVIzAJLEvTic6fF1Ka6gi3TOSfj5zgBP6RG4+JniOB5Yhm
+Y+fGcA/QDlIfYecqQkIxHXkdBkeRqK+ZlddOq0xVfZtulBqtSDzoMgvdDEGI
+J1Cdm1URhHiK4uPmGyEBBsU=
+       "], {{0, 0}, {50, 48}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["7", TraditionalForm]]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     GraphicsBox[RasterBox[CompressedData["
+1:eJyVlNERAiEMBV/sxBa0E0uwAfv/0xHCJSSEhzPeMcBlNyHD/f15vW8Anr//
+A+0nIpBskE6vNrdBNl0hkE6XiFSsRqTrNSJdrxFRbIuIYlvEHJVATGIMwotR
+CCfGIawYibAbSQTOcx9iPGKI8QicnOB/IE3sBIGWzAGiQ04QZ4WS6n4pEAdf
+aR6aP4nQ6vII3UyJGUg/FapQrsWoQvkWY87CJVGLdcRoxZ3YhTAnUotdCH/s
+KzGDgGFVYgYxPqrEPIISc4hwURwg1mIeAdlVLCB8zExsRoT2moJEhMDHDGIB
+ASnFEoSYRyYWEbCPIJYhxFzBidgSMZ2CETPNoZnpAuapFsQ2x/Xu0xpoAKGl
+1xZvFl9YDgZm
+       "], {{0, 0}, {50, 51}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["8", TraditionalForm]], ",", 
+     GraphicsBox[RasterBox[CompressedData["
+1:eJytldERwjAIhsFN3MBzFEdwAfd/s5qUQPhJwPMhd1yT5vsgpL0+X4/nhYhu
+x7gfgz+D+RgoYDQfLW4B+cdLBHy8RiCxDQKJbRD/ENsjvNgWUS2vF8sgjFgO
+Uc3CimURSiyL+EWMm1gB0Y0KCO65FxC9YgUEN0AF0XKHlx8jeuaUFJPUKwge
+x554S7waZismWffqJhFn3pQQGz40WGsxU6eE2Ikwl3ctNrqQ1dpYzCF4K2YQ
+KojENEJ1+0pMI5il20OxCaFmQ7EJwWMWizkEmQiJuSzsKToxgDCVAWIeYfec
+xSBibi+7CURQLBYhFhUDCO7HiMXMaslMPMgAz4ug6SSiLH2vgOo7Lv+Nb/gG
+oFcHOg==
+       "], {{0, 0}, {50, 48}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["8", TraditionalForm]]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     GraphicsBox[RasterBox[CompressedData["
+1:eJy11NENwjAMBFCbTVgBNmGELsD+f1S0htg525ePRqqUSPG91FVz396v7SYi
+z/157I+q2FA9FgrGsGnYYWWCxn+TLiO+nkHCIQkkHPISRH09gcgyosuILCO6
+jIy5HOImFOInDOI1BgkagYRXIpD4Sj0S+9YjU99aJOb2yJR7ATLndsic2yEg
+t0FAboOg3BpBuTUCc0sE5paIwtwKGepIZKzjEFdIIb6QQUIlgcTKHsGlFYJL
+KyQ5X4Ek5yuQrAk5kjUhR1AXaiTtNEZEi8+Jke8Fh7+Ju5LFbhA5px455V+a
+LcyQ45Ybf0Y9T2FpFn0YH/w8Brs=
+       "], {{0, 0}, {50, 51}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["9", TraditionalForm]], ",", 
+     GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmJiYGAwAGIjIGZkZARhRhjNgOCjAHRFCB6yEdh0oGohzhIUM2lk
+CeOoJaOWjBhLsOZfKluCvZAYtWTUklFLRi0hwRIG7FrwWYIih8bApQXDBSAS
+4QIGdEEIk4EB1ViwLAMDDi0A7XMKOg==
+       "], {{0, 0}, {50, 48}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["9", TraditionalForm]]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmJiYGAwBmIjIGYcBaNgFIyCUTAKRsEoGAUDAuANMaxNMgYkmgHG
+hDPAiAEmwwAGEHPANASDNUAEGRkAMlEL4Q==
+       "], {{0, 0}, {50, 51}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["10", TraditionalForm]], ",", 
+     GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmJiYGAwAGIjIGYcBaNgFIyCUTAKRsEoGPYA3uTB2vhhQKIZYEw4
+A4wYYDIMYAAxB0xDMCMDzHAgBgA3CgtK
+       "], {{0, 0}, {50, 48}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["10", TraditionalForm]]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmJiYGAwBmIjIGYcBaNgFIyCUTAKRsEoGAWDADCgsxigBAOyJDKD
+gQHGZwADsAAjmIZgoCxMkJEBADL9C+M=
+       "], {{0, 0}, {50, 51}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["11", TraditionalForm]], ",", 
+     GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmJiYGAwAGIjIGYcBaNgFIyCUTAKRsEoGGGAAZ3FACUYkCWRGQwM
+MD4DGIAFGME0BANlYYKMDAA3qwtK
+       "], {{0, 0}, {50, 48}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["11", TraditionalForm]]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     GraphicsBox[RasterBox[CompressedData["
+1:eJzt1rERgzAMheFf2SQrkE0yAguwfxeMJYM7vcI+uIvuVCDJ+gq74L1u3/UF
+fPZc9jTMKGkRpYZ51bP08RG6L69wdjzPnbJQFyoCE4ToCgKqgCzYJZJCO5MV
++AsPF1otL6AK2HjBUAVuKURTEFAFJghtIC+gCkwQoiYIqAK3FOK8IKAKyELX
+zgmXxzj072S4QEqot0Ad7wSOaAKexy3E6h9Glgj2
+       "], {{0, 0}, {50, 51}}, {0, 
+       1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["12", TraditionalForm]], ",", 
+     GraphicsBox[RasterBox[CompressedData["
+1:eJzt1MsNwjAQRdH76IQOEKVQQhqg/x0Gf2LExhcprHA0cmZszdlMct7ut+0E
+XEpcSxCS59ZWyWtpfvq91NeR1UKPsTL3fDWUQrSAFmIFtBC0EC1gBf7CgcI0
+jqsCPxByvIAW3oAlAS0kWkAL0QJaiBbQQrSAFqIFtBAtYAW00KpGQAuxAloI
+WogWsAJfCCwJoyf7sLcZ208+vu3+G3kAiX8GUg==
+       "], {{0, 0}, {50, 48}}, {0, 
+       1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["12", TraditionalForm]]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     GraphicsBox[RasterBox[CompressedData["
+1:eJzt1sENgCAMheH/uYkr6CaOwALufxNM4eDJHmxqAskLSeEjIb10LedRFmCv
+2WqERIv6soJG7GjsXiA3IAAoABAA5AZM8HMgNyAAKACQEsgNSAnkBqQEz798
+AZjgNVAAYILeHe65zi5iUZst7BUuTkAJYA==
+       "], {{0, 0}, {50, 51}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["13", TraditionalForm]], ",", 
+     GraphicsBox[RasterBox[CompressedData["
+1:eJzt1MENgCAQRNE/dmIHxlIsgQbs/+YSMXAjc/AgMhvCLtl3ZU3nkRZgi7Pz
+ROhOdGUulYf8Xu5mYYIuwAayARO8CGQDbKDfAmwgG2AD2QAbyAbYQDbABhoE
+MAjQIIAvAGravv4GURddvAZ+
+       "], {{0, 0}, {50, 48}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["13", TraditionalForm]]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     GraphicsBox[RasterBox[CompressedData["
+1:eJy90tENgzAMRVG7m7BCu0lHYAH2/yuoJBDy/OxIBgkUhHR1TMI0L9/5JSKf
+9X6vt5KrLLo9iZSXJCmL1ExrOEDoAwRJDMKeKo8wE5Mwp0okrMQmjKlSCZww
+Ak+VS8CEEmiqbAIkDgGmSif6xCO6qW4grolPXKe6g8A9I+CIyQQ6G06gs8km
+wE/pEP1/n0MoTBghiqaixDkJEiDxiCMJEzWJE20SIvZkhPgnQ8SROERz5Boh
+zjsb+op2m7QyjNCyTdvyAwOOBc0=
+       "], {{0, 0}, {50, 51}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["14", TraditionalForm]], ",", 
+     GraphicsBox[RasterBox[CompressedData["
+1:eJy91FEOgkAMBNDWm3gD41E8Ahfw/n+uYVfIdqbdJpUNSiCMbyLQ+/Z+bTcR
+ebTPU75L2TZ2bcn+tR/RiPbdCPSjPMFbMYIrdQSNUIK1qiRIxCFIq1ICRzwC
+tiomUMQnUKtqAkQCwraqJ0wkJEyrPxBzJCb0AkLSBKxYTEia0AsISRP2uUcE
+fq7cMQgjHgHfwWjS2sngEyCyMMynKRoSR2SZmCIrxDiTIHpkhVATie/F767p
+qZlDnP7ZflH/RUrIcbKtD4CkBrU=
+       "], {{0, 0}, {50, 48}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["14", TraditionalForm]]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     GraphicsBox[RasterBox[CompressedData["
+1:eJztzMENgCAQRNE/dmIL2okl0ID930QwgRgvc5AQdMNAspPHHPYtTMAas8To
+HNK5rrKgqur2o0A2oAGQDRgEyAb8oCsgG9AAyAY0ALIBXQLZgAZANuAHLwLZ
+gHEA4g54ApRWlG2atFB6c/Kv2XMARTUKJA==
+       "], {{0, 0}, {50, 51}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["15", TraditionalForm]], ",", 
+     GraphicsBox[RasterBox[CompressedData["
+1:eJzt1LsNAyEURNE77mQ7sFyKS6CB7T9bxH6MHO1NXmIjPZBmdMhgaeu7PYBn
+n1efhPR9PzPWHjACzvRqK0A0QIMUADSIBhSAaIAG0YA/uA2iARqkAKBBCgAa
+RAM0iAZokAKABtGAnwXRAA2iATVgTufoG/Bpp4fI8R8dLfN1p98AZbYH/g==
+
+       "], {{0, 0}, {50, 48}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["15", TraditionalForm]]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     GraphicsBox[RasterBox[CompressedData["
+1:eJxllNFBwzAMRCU2YQXYhBG6QPf/I8TWvedQaNKkin06vevn6/3z+qiq7+v9
+db27+vq/z+vvfv1dr1e37u7iVd55isL7f626797Fvb7eVXUU7oLm7np478hT
+FFpxNVtXqSrb7mZQ3Fbn5bLtFjM6VDqKZ7ktkE5bwqVOy61DWu6OmFEb0bPc
+/kJ2zw6jllHt0W3fCmNpT513xgMJ6nLaS7ezUSaQHnrGMP4zAqASCZmzPGEE
+0Mcwg854IrxkaqYVC0sCRjAiAwHEjGIZUqmFOxMzik1fagt7tHZLMoJnYNhD
+GMuSSZbgO4cZt0RnxsfgSEmwwygoAz6nhJ8H06kbcdcz97UtgaozJQRQ9gOJ
+opKUhNg0K09IglPSGhp0jtPCDB2iLErjCdXpFS6UtPgv+Me2045/fndyOk9i
+B4E9/M5jeZKkeWD2fxgNpwYehfZ/GA2nWZEgYXkSgD8dlYQwPx0kO9fGVQ0R
+gxl22hSuzrFPbIKmeJ45HCc2QZNGVY8+XE9SbFKY8UkH3TqhfZx00K0TWk/g
+POjqhDZJGriMhD4IWg0HXrOze3niGxDaiI+WuOVPzDHkJmPwFalHrEs9KiqR
+PReKtdJnzA2tdssSQUSx9XwTRJaQ8hELP3Q3YVSofgGbVwcV
+       "], {{0, 0}, {50, 
+       51}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["16", TraditionalForm]], ",", 
+     GraphicsBox[RasterBox[CompressedData["
+1:eJx1VNl1wzAMI7pJN+jrKB0hC3T/vzqWcClpEh+SDRIEwXw+fn8eHzPzdR3f
+1zG4D36fJ2Cdnyusu/uix7hx+62F3p8NWVfdE89ws1ajlX69USGYBnzDxEfs
+Cj2bNTZl7GINd/V7vTcFUeSZemmLM0HDVWqX9YGRIf5HlePy2AJhYIieocpj
+C0xI+ZSRCh4tSGITUrtsllYOEUO5IEohHysoSGZofu6ai0JALKl4wd7QQrWG
+2tYqCevR2Uw2ULnVHDqYernnrKhixk5VPQkJD7VzdEk57KoXP4VU0XMorJ2I
+iuSGerC0lktkzXBYQMRKVtPIevI8JXH/BhKTl3TTWKgyJ1lNUceRvo4YQLas
+GB5TjGDFUeipa70D6ngIjqMN/0uxuZTCEjbEZYoK36XfuSmG+ZoeIWpH4i05
+40kf62cxnGPYeKiCsV1p2skcQbp96O6y576okuwzCtY5Mon9EIpJl7gc3F8m
+8x2kLBFTF6a1ozXQYdocwBZODvkHomxpXxnB5Xh1mJZ6URaZ3u6VE1F30XkZ
+a6/CRSekuhic3E7bOMtV4xExPF/sVkF8gnCj+OSuAWQIq27v0dQeK0Fs4Ovz
+Bx8PBr8=
+       "], {{0, 0}, {50, 48}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["16", TraditionalForm]]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     GraphicsBox[RasterBox[CompressedData["
+1:eJztzNENgCAMRdFeN3EF3cQRWMD9/8QqbWOCkW/bhDwC73Qu+1YmEVnrWUQH
+aUMIruTxlyJFihQpUqT4q2BUMCoIglHBJ4GLmi/CWyZO0BfeMqGgK7ylNwwE
+QRRtbwMYcEEUuvV+RA61sAPD
+       "], {{0, 0}, {50, 51}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["17", TraditionalForm]], ",", 
+     GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmJiYGAwAGIjIGYcBaNgFIyCUTAKRsGgAyRX0CRX6cgaiNOLrIEo
+HSga8OlggKsiVgMDVg24taBqYMCqgYFkDQwoHIgsmGIAABzXCzM=
+       "], {{0, 0}, {50, 
+       48}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["17", TraditionalForm]]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     GraphicsBox[RasterBox[CompressedData["
+1:eJyVk+1twzAMRI/dpCu0m3SELJD9/zUFIpH3YTUBbCSWIb4n8vx5u//cPgB8
+P+6vx12oddFDr+rS3OBv/y57nn/ThiMkvA0QsnoJwlbvQtI5HSJWL0DE6k1I
+bqaWUasAkSyYlUEsC2qVYvGPlUN4ya0UYlmwXlnmJQs2Qc+8ZMEnGK0uIOmc
+XelgZRDuYLJiiGUhWFlYCRKtBMJjilYEsSxEK4kFQbIVQ4oguVcxoQGyJ4hs
+hcMEs9WSiBOEVhqu2Sp9zThbwa3qbFXByo9OVghWdbSqZIWjFdSqHMJWZVY1
+gNEKZjXeRasyK4OoFcwqfc8gcp94NanmHuvV/mkriZxMEF17W1GufYKjdgdq
+QnyCXZsDdW01ahfI/9Kqa0ug1OqpM2qjHS0N2AlC1wZosYIVZf7ZtxmrtsLm
+L9r+ulfWfwFwJAgY
+       "], {{0, 0}, {50, 51}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["18", TraditionalForm]], ",", 
+     GraphicsBox[RasterBox[CompressedData["
+1:eJyVldERwjAMQ202YQOOURihC7D/H+0ddWxJTlooHDSN9WSr8Ny+n+1hZq/9
+9bbj4f/D/XgzOuhUfDS1alxmvqpECtVNEbsosvRJZYDqloh1ItNeKRH6DlR3
+RKwRwSxcmVg9RVSqRiNizQbMwtInZYEmuB4iUpF1zMLSJ2VBUK3iKKigmeBE
+lcOJVRFJNW+XoqrNBCeSSvUqyiiqxhyJZCrVKwuPopZzpVFGUskhTidY+uuw
+p6EqOaqsHRUXC9aGKg0O+ttSxVp25jMq9S8AIkgVI/Yq0lONHI2ueh0MUoFL
+IxGiSh3IIhOq7HjsSiJIhUMwEmGqDJPR2gmm2qkLjmnwopZFxmU1DXD/JcfY
+Q77Oc+0YTymTqErm/eQ7N9Q0CKMgAmmIfI7focK5P3/sZwVv
+       "], {{0, 0}, {50, 
+       48}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["18", TraditionalForm]]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmJiYGAwBmIjIGYcBaNgFIyCUTAKRsEoGAUDAuANMaxNMgYkmgHG
+hDPAiAEmwwAGEHPANASDNUAEGRkAMlEL4Q==
+       "], {{0, 0}, {50, 51}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["19", TraditionalForm]], ",", 
+     GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmJiYGAwAGIjIGYcBaNgFIyCUTAKRsEoGPYA3uTB2vhhQKIZYEw4
+A4wYYDIMYAAxB0xDMCMDzHAgBgA3CgtK
+       "], {{0, 0}, {50, 48}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["19", TraditionalForm]]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     GraphicsBox[RasterBox[CompressedData["
+1:eJzN1OsNwjAMBOA7NmEF2IQRugD7/6MC17WdR3USoFZClCS97xTRXJfnY7kA
+uK+fG94XwfXym3C7j4WFdUWzGDVKJiATlAnIBGUCpyTqj18QkAnKBGSCMoFT
+EsPxLxKQCcoEZIIygVMS/AMBmeiFzIleiBP92SlB9opNCXRmD4i2WC8kEW3m
+IVEy41s4IqATsdiUSNmT/2GeqMWOCLTF/CwZELVYPEsGRC3mZ8mQQC3mL3oi
+mM8xS8YeH/YxnWIeaslbvCfFV8+nPs/RB60nfSvC85bO7csGmZJ8o6wBttaW
+aswL5jkHjQ==
+       "], {{0, 0}, {50, 51}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["20", TraditionalForm]], ",", 
+     GraphicsBox[RasterBox[CompressedData["
+1:eJzdlNENwzAIRO+6STeIOkpHyALd/y9uHDA2qR2kflhRhITA8I6E+Ll+3usD
+wJLslYxkMnWMW2LZ02Bzoj58xOpWMyIYRiCM4JQI3ATBMAJhBKdE4CYIhhEI
+IzglAv9FMI6gu2UHiLzaIcTOiCFwJqyPcMLGCCfsRGeDqIXR/OgOYZrZLDsI
+0/saouqNS4hqaLObHQScsCEiJ0vxLwQ0aT9KkQbzHnUPdst1UqztpbOZAkI/
+XJldpycKzyrTOreJLNFmaSkjQM5/nw252geo
+       "], {{0, 0}, {50, 48}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["20", TraditionalForm]]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     GraphicsBox[RasterBox[CompressedData["
+1:eJzt1NENgzAQA1C7m3QF2KQjsAD7/xUFGgWIufMPqqoKUATkybkkynOaX9MD
+wLg8w/KwXuUF2L5td/O/9nMBbQAb0AawAW0AG9AGsAF/BMAG/IM0gA1oA9iA
+NwDYgDcA2IBfCYKjrHcK2EBnKCAzJFAZGogMXYPIuCq6m3E9Sx0STOu5kmgd
+TsWHC3ecr3ilD1Oc2BrYkcxe2jWphJbkhtSkJGtY+5aGrKBkf0Ad8zqgN3H4
+Bdw=
+       "], {{0, 0}, {50, 51}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["21", TraditionalForm]], ",", 
+     GraphicsBox[RasterBox[CompressedData["
+1:eJzt1OENwiAQhuH3cxM3MI7iCF3A/f9JYxE0gPclStRIIAGOJ+1dG/bL+bTs
+gEMaxzR0baydbaa0vXblaKP9wVuAbMAEIBtgA9mAHwGyAR8JNAFgA00A2EA2
+wAaD8x3wXXfly0C3tH3QIaMnNM34lRrkaQ6PJJD0PQlVqV4Ey1qW4e+QN0I5
+UJEYqEi0SpSLkRsAFZB/wC18AS8xCUY=
+       "], {{0, 0}, {50, 48}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["21", TraditionalForm]]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     GraphicsBox[RasterBox[CompressedData["
+1:eJzt0ssNgCAQhOH57cQWtBNLoAH7v0nWZ+JB50IIGhh2E/IdCNuneUqdpDFn
+yCF2ZD/Xcr0g1tbYgAJANqBKIBvwWSAb8IPXQDagESAbUADIBlQJZAMaAbIB
+NpANsIFsQCNANsAGt5F5BKyfGAVOEP0xrftjo1kAfMAEsA==
+       "], {{0, 0}, {50, 
+       51}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["22", TraditionalForm]], ",", 
+     GraphicsBox[RasterBox[CompressedData["
+1:eJzlz7sNwzAMRdH7vIk3CDJKRtAC3r+zIseJ2tsQRgyBPxGn4Nq2V1uAR49n
+D3K8fPJRevouxu/cWIAG0QANogEaRAMuCaIBGkQD/gREAzSIBhSAaIAGKQBo
+EA3QIBqgQTSgAEQDbguiAQUgGlADxuo9wA/ABDiPHc0OZ5AIBA==
+       "], {{0, 0}, {50, 
+       48}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["22", TraditionalForm]]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     GraphicsBox[RasterBox[CompressedData["
+1:eJxdlNdhw0AMQ8FskhWSTTKCF8j+f4klAXg8F1nljgRR/Pn6/Xl9SPr+/37p
+ek1f7wu939dhrs/1/Dmfe73wvm9eO65dVxX13AXxvRvdn/R7KtwL8gxriiFl
+sXE8SH7vg+S6T18jvGcTB/K+1DW0hxqZD3WUjuxFJTRtn3oz3OdpUzrlJ1VI
+Q7s/TEyYMWxZCRJnwshtYRv6IleWjLKqQ6VtplEhBK84VJU2eHUkSNlJo6Kt
+ZBK97ORHblBbZe5jPO9Kg8GMpTnpAO0qC52xdxCloAqCxSicO+t6uWxpGaNt
+nmTez7DCue5e1eq/IyjQcLZqxh8iY6Fmx55A+n0HETVPSRL2YuJGM+puZGCs
+Cpn4eHZEhNjcfhmiAfLeNR76FZxxkBqnkQrhfwO5o7tFZOxoFpLNSr5IiHpL
+MrV6c7T6xPT13WCmE1TdV2+TimWQXrVGArEjXCrcdi8HxNMgs7jbm9rUtswI
+DuXuYT2hfVEOQPNY39kujR29Xx3gu3QJZqjuJ6uIHRag2GQ2srb+ColxoHAG
+J9YBIfFQ0xRmtSNfDb3S/QRcjqfISsRKv/KfdgFZCuI8xhLtMg78ZjJK42rX
+6/oNqcJAkLsS00DIZsWs6CC8HoHDkCotVOVcQWBO6teS8kz1B3HvBw4=
+       "], {{0, 0}, {
+       50, 51}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["23", TraditionalForm]], ",", 
+     GraphicsBox[RasterBox[CompressedData["
+1:eJxtlOFVwzAQg09swgY8RmGELsD+/yipJX0X6GvSOrZ10lnK++P76/E2Mx/P
+6/N5aaTf+/Pndfv9eX3kka6/46/m7PDt2nhdGZ0/Z+8cHCB4cyYvyDn1Jjg6
+OBMQj0PbVEDHs69/CrssObJbLrNmjYpyA0przVqx3D9zbHXDjNtLadnulmMQ
+fK8czvUcjqhzVkfFka3dmXQkTZ+UHJOSp9jh4A1KhnttBEnByz5t7vAPHdOO
+11Y3G2Fl1aNtbprclbVSokB10WQGUmPCCszDtmBJ9akpqLVdtGoNVLpMSA8q
+DcpgMIuE7HR4ff3tBz7cHGasD8ABsR7uzrd5ugj6GMWhRR/QlCuKyUcOxSVs
+lvZ9gNtiyKCD2L4Tl2q1i7PvxL35LvcppfoGdeI7QRHTN4vUH1Vxk6IZGNqq
+skGFqQ5jLxISthQGBtkkuAE8Vtqbl38+TTgsibxMty+YVvfrYTPdV3DUzboz
+JUjeDSkav8fqN5A+nMhquAIViUw7jNRoTtiHQyXSHnV7fXEzN+NXi6cQ5SNU
+VDohuk+5anh6eUtNdUJ23AjndF27OqHfzPbA4QCAjsIYmWsAb5gGumW2Qo3a
+M3ErbplFdsPhBxNOBrM=
+       "], {{0, 0}, {50, 48}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["23", TraditionalForm]]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     GraphicsBox[RasterBox[CompressedData["
+1:eJztzcENwDAIA0C7m3SFdJOOkAW6/y9UuII8+zcSCQqQO+dzzwPAFTkiGZFn
+Vope4+vVTHXZVsn9n7pt2LBhw4YNGzZs/DMgA1TuBnIb3ZdBKPmO5SOxAG5o
+BwU=
+       "], {{0, 0}, {50, 51}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["24", TraditionalForm]], ",", 
+     GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmJiYGAwAGIjIGYcBaNgFIyCUTAKRsEoGOGAAYnG0jhiQFWFXQcD
+QhkDADqjC18=
+       "], {{0, 0}, {50, 48}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["24", TraditionalForm]]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     GraphicsBox[RasterBox[CompressedData["
+1:eJxllNtVAzEMRGU6oQXohBLSQPr/YyGeudfZnGxYy3qNZsTn4/nz+JiZ7+v5
+up51fa7f+f+5TrOPf9+XNX9y+3JRyH5bO2b77tTbtlKnuXaVV7Ldxk6/vVdL
+cJ+k8Z1p3tYSlgmWhCSyrac+hmnP9d39xzuHWdw3aa6XGlwZqMIZyniyhZZJ
+K7w3t8mWltCQlw3avIresO9ZlEDxqgJhZbMdimrQxIEYBcEFZB8TB6IJqgqM
+mNyBWO1B8DhnaQKiCXJI53uHOO7RVTTKOSEePVYnTJDm0bN7TCE1jbqA6x4r
+Lahzy9pHdg6thyNMSG/UY1ax2D01pKed616Jo9TuvmnuQ9HaVVsQRW2TWWPd
+AJmhdlrEus1+GKJDJiHRdwEXy0FtEaR0ui7GRQphCSJ2VRiXiAALy0hXHmQP
+x2yqzxDJzHXoxkoWiKgd50FEx7pO5TLtuPiGEMtCoqTjjkVVZEaUWpxyS5Vw
+i8I6wtW7cYg4WcDIa4dfkUg+CMXKwUshS+a7cvBiOZbNwgvmFDUjmIXX7B26
+ejML7/EvwLqCVDajxY9eqqtxyLLPtJ3ItbpxFftU9UbMQouX+pRRFq2kH6R2
+xVF91lmLeJBKiLh9U9GJRSGVNxumKPNCFYQzv5aYBzQ=
+       "], {{0, 0}, {50, 51}}, {
+       0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["25", TraditionalForm]], ",", 
+     GraphicsBox[RasterBox[CompressedData["
+1:eJxtlNtxQkEMQ610kg4yKSUl0ED6/wtwVzoyZAYS2Ou1ZT34vP3+3D5m5uv+
+/r6/NZJmnp8er8fB8/D6M+fhnI+pvQquKzmZZ8Gpe35Xd5Fy5Tr3U9deX05P
+LUB+7uZ5bPznqqcBTn5I4fVF1dXzCk4tNHVTbnbwurFYgJ3TMzuk7TmhQGlR
+tBvq0MTYi7U0armKB+ZIjDN3+Rr6DUDpNLVioC8+6Fka0QGBWCOgIY8VT2dg
+w2EbtlcMd7SqA7ep41iSLTdoMSsrxsVVK0C/zMorDdHUE45vGL7jZ83wtqc0
+3WXI4Hm3VjmDgPQ2hNAcsQ9Wz49Ek/RWCHfoAUu4b+teAaksJa9jfsIx1i1g
+SmVSghSYOYovRsxsoNe/8nZu4yLii6gvU8hShv3rh46BsjYJtk3FFUMJUbV9
+iDIPZqB0CwmqVTHHgtv2RJIEyyoi/IoxbBeqmKfAxyfDmGxUYQkAMTOVQ4MK
+B2wv+2xkxDKgcUh82lGLc7BhkHq+chf7F4HlqzYvnKpnF4RJGb8PZbYoCEYk
+zZUwvpuRKRQRK7a+yJONK+Gl4KsSCSLW6ymWuW1vo8LamlLS4nqvUBB6lwTc
+9xcXkLp0KfuUp/UH1ZUGcg==
+       "], {{0, 0}, {50, 48}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["25", TraditionalForm]]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     GraphicsBox[RasterBox[CompressedData["
+1:eJzt1sEJgDAQRNE/dmIL2okl2ID930w0Qa/jYVnUwJBN4IXAXnZct2UdgLlk
+KhFSTd3a6ieu0C9LYQPZgJRANiAAyAb84HNANiAAyAa8BMgGpASyASmBbEAA
+kA2wgWxAAJANSAlkgwcj2b3xteKY6/pjLeffWyN2TkAJYA==
+       "], {{0, 0}, {50, 
+       51}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["26", TraditionalForm]], ",", 
+     GraphicsBox[RasterBox[CompressedData["
+1:eJzt08ENgzAMRuH3d5NuUDFKR2AB9r8RaEPErY+DxaG2HCmKv1wsP+flPT+A
+V6upFWm5Hd/oN0Zub5++c8uvAA2iARqkAKBBNOAPbgWiARqkAKBBNKAARAM0
+iAZoEA3QIBqgQTRAgxQAbglSANAgGqBBNOAa4ADsMRazT2x8nKykdwem
+       "], {{0, 0}, {
+       50, 48}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["26", TraditionalForm]]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     GraphicsBox[RasterBox[CompressedData["
+1:eJzt0MENgCAUg+H+buIKuokjsID73xSCgRgvPUgISoBH2nwX5rBvYZK0nmdR
+XqSdrxJQVXX7USAb0ADIBgwCZAN+0BWQDWgAZAMaANmALoFsQAMgG/CDF4Fs
+wDgAcQc8AcqMWRxQfjy9M0jtFaIDhcsD7A==
+       "], {{0, 0}, {50, 51}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["27", TraditionalForm]], ",", 
+     GraphicsBox[RasterBox[CompressedData["
+1:eJzty7sNwzAQBNEZdeIODJeiEtiA+89MUBIlKPIml9gE7oPlvUd7r20Bnr1e
+vRR736bjbQEj4EjnbwUwBsTAAkAMjAEFwBgQA2PAH3wNjAExsAAQAwsAMTAG
+xMAYEAMLADEwBvwsMAbEwBhQA67pNboDnHNcjmWC83K/mw0/ZfUIAg==
+       "], {{0, 0}, {
+       50, 48}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["27", TraditionalForm]]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     GraphicsBox[RasterBox[CompressedData["
+1:eJxdlNdhw0AMQ8FskhWSTTKCF8j+f4klAXg8F1nljgRR/Pn6/Xl9SPr+/37p
+ek1f7wu939dhrs/1/Dmfe73wvm9eO65dVxX13AXxvRvdn/R7KtwL8gxriiFl
+sXE8SH7vg+S6T18jvGcTB/K+1DW0hxqZD3WUjuxFJTRtn3oz3OdpUzrlJ1VI
+Q7s/TEyYMWxZCRJnwshtYRv6IleWjLKqQ6VtplEhBK84VJU2eHUkSNlJo6Kt
+ZBK97ORHblBbZe5jPO9Kg8GMpTnpAO0qC52xdxCloAqCxSicO+t6uWxpGaNt
+nmTez7DCue5e1eq/IyjQcLZqxh8iY6Fmx55A+n0HETVPSRL2YuJGM+puZGCs
+Cpn4eHZEhNjcfhmiAfLeNR76FZxxkBqnkQrhfwO5o7tFZOxoFpLNSr5IiHpL
+MrV6c7T6xPT13WCmE1TdV2+TimWQXrVGArEjXCrcdi8HxNMgs7jbm9rUtswI
+DuXuYT2hfVEOQPNY39kujR29Xx3gu3QJZqjuJ6uIHRag2GQ2srb+ColxoHAG
+J9YBIfFQ0xRmtSNfDb3S/QRcjqfISsRKv/KfdgFZCuI8xhLtMg78ZjJK42rX
+6/oNqcJAkLsS00DIZsWs6CC8HoHDkCotVOVcQWBO6teS8kz1B3HvBw4=
+       "], {{0, 0}, {
+       50, 51}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["28", TraditionalForm]], ",", 
+     GraphicsBox[RasterBox[CompressedData["
+1:eJxtlOFVwzAQg09swgY8RmGELsD+/yipJX0X6GvSOrZ10lnK++P76/E2Mx/P
+6/N5aaTf+/Pndfv9eX3kka6/46/m7PDt2nhdGZ0/Z+8cHCB4cyYvyDn1Jjg6
+OBMQj0PbVEDHs69/CrssObJbLrNmjYpyA0przVqx3D9zbHXDjNtLadnulmMQ
+fK8czvUcjqhzVkfFka3dmXQkTZ+UHJOSp9jh4A1KhnttBEnByz5t7vAPHdOO
+11Y3G2Fl1aNtbprclbVSokB10WQGUmPCCszDtmBJ9akpqLVdtGoNVLpMSA8q
+DcpgMIuE7HR4ff3tBz7cHGasD8ABsR7uzrd5ugj6GMWhRR/QlCuKyUcOxSVs
+lvZ9gNtiyKCD2L4Tl2q1i7PvxL35LvcppfoGdeI7QRHTN4vUH1Vxk6IZGNqq
+skGFqQ5jLxISthQGBtkkuAE8Vtqbl38+TTgsibxMty+YVvfrYTPdV3DUzboz
+JUjeDSkav8fqN5A+nMhquAIViUw7jNRoTtiHQyXSHnV7fXEzN+NXi6cQ5SNU
+VDohuk+5anh6eUtNdUJ23AjndF27OqHfzPbA4QCAjsIYmWsAb5gGumW2Qo3a
+M3ErbplFdsPhBxNOBrM=
+       "], {{0, 0}, {50, 48}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["28", TraditionalForm]]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     GraphicsBox[RasterBox[CompressedData["
+1:eJy91VEOgyAMBuD/3012BXeTHcEL7P5vOoSAtNA1YU3AmLZfqw/oc/+89weA
+17m3cxPslh5o4m4i0iaR6fVEq58TtX4xGdRPyGQNyEwNA04CN2EAgZvQTeSB
+sQgDCNyEAQRuwgDSR2wiIn8gShODaHNXE/3tjO+Sk/zwT+qWllpN4CYMIHAT
+BpC+wiaiorbyEo5I0/GWgkba48GelMe6EVZyxVEuKUBBSlVl32qU0ZCkORuZ
+XQrII5JPm3l6ujkATw8IVg==
+       "], {{0, 0}, {50, 51}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["29", TraditionalForm]], ",", 
+     GraphicsBox[RasterBox[CompressedData["
+1:eJzl1dENgzAMBNC7bsIGiFE6Agt0/z9QSxITDiJLwa1UCX/E+MWRwMowv57z
+A8C4xrQGjw9lgikfQUR9g6j63kTX/wNBAOFPkvpXvoPQTRBA6CYIIHSTOnMH
+EZkGUZv0Jvqo3ybN26IDoZsggNBNEEB4RnhG6k3N6pocvgshiJ0o1oSqixmP
+9/tPhrbFntBMVI6yyKYQ7nA5SypPbfPFt4EFsDwGVQ==
+       "], {{0, 0}, {50, 48}}, {
+       0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["29", TraditionalForm]]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmJiYGAwBmIjIGYEIQREprAKMo7qGNUxqmNUx6iOUR2jOkZ1jEwd
+UJoUOxgh+hAaMVUg+BDMANEH14jpCoRWsHawYgaYYkYko+BOBTMAbT8GcQ==
+
+       "], {{0, 0}, {50, 51}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["30", TraditionalForm]], ",", 
+     GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmJiYGAwAGIjIGYcBaNgFIyCUTAKRsEoGGyAAYkkQwtWjQwYbKK1
+AGkGdMUMWNgwBgA18gtU
+       "], {{0, 0}, {50, 48}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["30", TraditionalForm]]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     GraphicsBox[RasterBox[CompressedData["
+1:eJztzrsVgCAMBdDETVxBN3EEFmD/zphnCGBFZ/HghG/IZS/1KpuInBaHhaI/
+Q6yx7HbaDnXIGTPm2/mEBg0aNGjQoEHjd8ZbacHQFcPrYxRJMT/8NfBMO0ND
+bXDUl5bsDe99RmRRm25mtwcQ
+       "], {{0, 0}, {50, 51}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["31", TraditionalForm]], ",", 
+     GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmJiYGAwAGIjIGYcBaNgFIyCUTAKRsEooAcgvdlBkgZIswalcQNi
+47OVAcMWBnQ+AyoNMp8BIciARQeIAAAxVwtK
+       "], {{0, 0}, {50, 48}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["31", TraditionalForm]]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     GraphicsBox[RasterBox[CompressedData["
+1:eJxtlO1ZAzEMg2U2YQXYhBG6QPf/R5+7SHpdAPrBJYplSc7n4/nz+JD0/Xp9
+6f6ZuV8af3+9Dx/dX6+1C3Bv0dl69k4AymoBmkCVvQdw/TszrJAzTjW/e0OJ
+GSAA7rUUnfI0IMcZYBKW5OwsgD1cvxWuPU8/5k8FCGd4dR7/vQFcgZpXFwos
+M37jCydrDQACQKV9VkrwBlS4pTUkBUE/I0COV1cWQGWplGwQGYQQYg8uWb9L
+AIQMkGkwiJBpWlZBnB6okAFdjZgh6J45Qc0yesx6itNNs8Ko0qeexWxWEsx5
+Ge8goENLiAlD8Ypol+xmfdIujsmoJGAZAg35P5KAZTxZITeyEmVl8jRdN2Gx
+M0EEgwNQgh4PQqZuLsD9vHFvaOhmAeewxD1NiBQJOIdts/lQ7KFTRMGyMS4m
+BHFn0CLsttec+TiboLZss8CZL6AjAbttPu3d10oDBXWzA1OSzFRa917N9pRE
+DYvW3gWmnBIDyAWuQBBcHECv3qlM6BrAhCAMNb8ztGfsrXdEKalYM1YK6shR
+uUQA41Ef0FvsawQYR1eIMuta6ZGRtR9QzvOAu6GjxumqcourygqCNErdtLKR
+Qaj87iGblpr7VoEyWhdI+4APw14OAD0k40b+As1lB0E=
+       "], {{0, 0}, {50, 51}}, {
+       0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["32", TraditionalForm]], ",", 
+     GraphicsBox[RasterBox[CompressedData["
+1:eJx9lNtxAzEMA8l0kg4yKSUluIH0/xePJe6C/sj4Xj6JJAgC9/n4/Xl8VNXX
+8/x+nv38VZ/zHM/zdT1rr+ez69zPy7oB9+ncz2LVfb6B52UTwG1KkXoqZLqJ
+uGkn6oILZN0rYMCcYFANuFo9TPBN1LByC/WU3AFDXE/qICtRGABdkzx4hrdo
+eqoE1/JM+tqADKg9rrkSAGYCjJlpX4ADiLqOla64LkAdfIR05k2QP6sAo++Y
+QEXjvYHPYrNplqarRah/XN/MIF8Fl4IVwQhBgSEJ/yOrhoZgXHKWOnMIWgMl
+yoTTDyVLCQaSgOkxMDi0N/CaxHbBk5EpcqnUSGDnP95NY0EYc8H+S++oU4ZH
+CNCuaPRDWyHZRuvKYSjcIggBxFiC6xh6GOU/0SMCzRopFU3I1npDiEqKkejO
+wSV7oQT3yv6aPlwvrlSTdFA3h5OjozyW3UMP4gK6HyYJTud0DDS+F/pF8ftZ
+WbaWZQrLs8vUqmgnnNHDQvsJmjJhxEz35jX4UrpxlLtjOSwye9SqQq9dva1d
+MGMaWAlvMCUcmCpcko1ZQg+D1TnhgrRaoiv3YoMRhCyEiOkExpB6xeHXAFGM
+cpVSkxSUSok5AN0B/gGIlAaw
+       "], {{0, 0}, {50, 48}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["32", TraditionalForm]]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     GraphicsBox[RasterBox[CompressedData["
+1:eJztz8ENgCAMBdD/3cQVdBNHYAH3v1mFJi0JRG8ePqSFJtCXruU8ygJgt9gs
+CBJ5e4pluqL/QU+xTFcZMmTIkCFDhox/Gla/Nrz5B4NVCAY4MVpzZoMDA/4W
+z2rD3GeNNOEFYk4HEQ==
+       "], {{0, 0}, {50, 51}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["33", TraditionalForm]], ",", 
+     GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmJiYGAwAGIjIGYcBaNgFIyCUTAKRsEooA8gpeUBVUpKU4UBwwa8
+9kHVoinBpQOsmAGmEdkqBiSLoIIAMQsLSg==
+       "], {{0, 0}, {50, 48}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["33", TraditionalForm]]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     GraphicsBox[RasterBox[CompressedData["
+1:eJzt1FEKgCAMBuD93aQr1E06ghfo/m8tahpOjGATqQJtTL4H6W9jWJcwENHM
+a+IFfvY9VfLiLR6c/VQ8ItSA4CeOhBoQFbIuSCn91gQNiPr8DqQQshtSGTFm
+BF2SPJceBJ8leZQ9CF5CVJQdSB5lD6J/GHuic2lPricVQhQLnN14LZmSB5FZ
+DmmCNlXUCF4=
+       "], {{0, 0}, {50, 51}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["34", TraditionalForm]], ",", 
+     GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmJiYGAwAGIjBhBgZGRkgAIICyrACMUwNkgcqpTmWhhHrBaGYaKF
+kWQtDKNaaKgFe7bEpwVHTh5gLdjzGD4teEqlIaUFe7YcaC2Ei/6hoQVXHqOm
+FmJqi1EtdNTCSJQWJAZ67CMpR9XGCBMAAFObBQE=
+       "], {{0, 0}, {50, 48}}, {0, 
+       1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["34", TraditionalForm]]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     GraphicsBox[RasterBox[CompressedData["
+1:eJzl0ssNAyEMRdH70klaSDpJCdNA+t9lgAFl6btBkWLJApnPsRD34/06bsDz
+zMeZIaFlWtCjF9LHkWnbRvGajAXGqXHHdck8Oot7BKwQL8QKeAErZIcQK6y+
+ysJ827owoy7EC7HC/CZ1YT1YWQArrMbKAjsErBAvxAqzs7oQL8QK7BCwQmIF
+dghYIbECXsAK+V8hVsALWOHrkxQFflT4AGDQBwg=
+       "], {{0, 0}, {50, 51}}, {0, 
+       1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["35", TraditionalForm]], ",", 
+     GraphicsBox[RasterBox[CompressedData["
+1:eJzty8sJgEAMRdF77cQOxFIsYRqw/5066t63kSAGEvI7Y1uXNgDTnjN3iMpR
+9q7Pfcc19eP51LsfPAPEwBhQEvgC4CPAGBADSwJiYElADIwBMTAGxMAYEANL
+Aj4CLAmIgTHgDbABXtEGiw==
+       "], {{0, 0}, {50, 48}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["35", TraditionalForm]]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     GraphicsBox[RasterBox[CompressedData["
+1:eJztj8ERgCAMBLN2YgvaiSXQgP3/UIkgeTj483E7w/DILUfmtG9pMrP1OIsJ
+IYQQQvwOPucYVFqOMYUW5F25Uw+FoBAEquA/IypBLwql4xrSKfheeBn18fPK
+s7ICWQ==
+       "], {{0, 0}, {50, 51}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["36", TraditionalForm]], ",", 
+     GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmJiYGAwAGIjIGYcBaNgFIyCUTAKRsHIBcS2BBDqiG08MJCqhYEB
+qWGCVwsDnMKphQFNAwNcEKoFQeDSDsMQPTBDGBiQVDCgqYQzACGcCzQ=
+       "], {{0, 0}, {
+       50, 48}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["36", TraditionalForm]]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     GraphicsBox[RasterBox[CompressedData["
+1:eJztzNENgCAMRdFeN3EF3cQRWMD9/8QqbWOCkW/bhDwC73Qu+1YmEVnrWUQH
+aUMIruTxlyJFihQpUqT4q2BUMCoIglHBJ4GLmi/CWyZO0BfeMqGgK7ylNwwE
+QRRtbwMYcEEUuvV+RA61sAPD
+       "], {{0, 0}, {50, 51}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["37", TraditionalForm]], ",", 
+     GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmJiYGAwAGIjIGYcBaNgFIyCUTAKRsGgAyRX0CRX6cgaiNOLrIEo
+HSga8OlggKsiVgMDVg24taBqYMCqgYFkDQwoHIgsmGIAABzXCzM=
+       "], {{0, 0}, {50, 
+       48}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["37", TraditionalForm]]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     GraphicsBox[RasterBox[CompressedData["
+1:eJztzcENgDAMQ1GbTVgBNmGELsD+N5q4nYHLj2RVSpq8c7zPOCTdM9eMZavi
+KnV1w/0mrm9peo0zUdZyZF3Zu7spY2BgYGBgYGBg/G18YJ4HCA==
+       "], {{0, 0}, {50, 
+       51}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["38", TraditionalForm]], ",", 
+     GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmJiYGAwAGIjIGYcBaNgFIyCUTAKRsEoGAVUBQA8Ogtr
+       "], {{0, 0}, {
+       50, 48}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["38", TraditionalForm]]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     GraphicsBox[RasterBox[CompressedData["
+1:eJy9lesNwyAMhH3dpCu0m3SELtD9//WRBu4ghkOqihSJWGd9PseQ8/1xu58i
+4vp6LvFeCAAHuyjrE9/W++1QDRUGZ69TMvUvKbk6owzUCWWkPqbUvUuJofqI
+InuLIkSLAqxSGl8GBX+gtNM/p7RzOaeoLYfST/+MQjqTonPpUETnUbBMUZ1D
+Se6LPC+/+5I8iHBO+RpfofCrR9m7u0BBJ5xRSndNCnfXpHB3PUrwIfQo0l2L
+Aj5XBqU6tynVuUsh550woXCBHqU6L7fjkMLO6+cfUnbnxVRPkSA518PV/JOE
+QjWxmCka3JyXHKH055qco1THiWA02iBUXMv5tp1q3O5SyFwhqklQ7fhsnmRD
+Bi0=
+       "], {{0, 0}, {50, 51}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["39", TraditionalForm]], ",", 
+     GraphicsBox[RasterBox[CompressedData["
+1:eJzt1NERwiAMBuDETdzAcxRH6ALu/yZSCj8/5BLu1Ber1kIb8kGb47o9H9tF
+RG7puKdD01dU02lo7b/3R8o53zWic6sFtsEl15JiRtuKGX0qH1BkVcGK+ZbS
+12VI4br8G2WsGE/RHyjmfmGN44rxFAqMKBToK+V/RREOdJXj6YaV9nTDCg4N
+KQpDgwq+w5gisqgcK19QqOMrSp2AQtUbUHDlewJHgZXXrI5CqXSiAE3v3FTg
+Iqy8n3undBd5C5JpQqJxLxkS9hSufDIlnG4dWftySE3BOWl7a7nxApXVCJU=
+
+       "], {{0, 0}, {50, 48}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["39", TraditionalForm]]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     GraphicsBox[RasterBox[CompressedData["
+1:eJy91VEOgyAMBuD/3012BXeTHcEL7P5vOoSAtNA1YU3AmLZfqw/oc/+89weA
+17m3cxPslh5o4m4i0iaR6fVEq58TtX4xGdRPyGQNyEwNA04CN2EAgZvQTeSB
+sQgDCNyEAQRuwgDSR2wiIn8gShODaHNXE/3tjO+Sk/zwT+qWllpN4CYMIHAT
+BpC+wiaiorbyEo5I0/GWgkba48GelMe6EVZyxVEuKUBBSlVl32qU0ZCkORuZ
+XQrII5JPm3l6ujkATw8IVg==
+       "], {{0, 0}, {50, 51}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["40", TraditionalForm]], ",", 
+     GraphicsBox[RasterBox[CompressedData["
+1:eJzl1dENgzAMBNC7bsIGiFE6Agt0/z9QSxITDiJLwa1UCX/E+MWRwMowv57z
+A8C4xrQGjw9lgikfQUR9g6j63kTX/wNBAOFPkvpXvoPQTRBA6CYIIHSTOnMH
+EZkGUZv0Jvqo3ybN26IDoZsggNBNEEB4RnhG6k3N6pocvgshiJ0o1oSqixmP
+9/tPhrbFntBMVI6yyKYQ7nA5SypPbfPFt4EFsDwGVQ==
+       "], {{0, 0}, {50, 48}}, {
+       0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["40", TraditionalForm]]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     GraphicsBox[RasterBox[CompressedData["
+1:eJyVldEVwyAIRXndpCu0m3SELJD9/5qm4lFB4H14EonXK5Kjz+P8HA8ReV/t
+dTWg1IZeDZl6pAG8oYIsEdqQIyZCGzLEidKGGHGjtCFCNl9owx7ZumnDDgk2
+hDb4SPgf0AYPCYd7i0oMFkmG20WlhhVJh6+LKhiENYA3gDUIbxDWAN4A1iC8
+QVgDeANYg9yG+gU6ZM0gpvYlA4N0kL3Zb6Jm0IJIDdF97UTF0AqiRG5AM6CC
+DFnr/saIDC+wiHdWjln3kihiSzpl3eYA1NMS/E86Tfx7fAFGwQbr
+       "], {{0, 0}, {50, 
+       51}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["41", TraditionalForm]], ",", 
+     GraphicsBox[RasterBox[CompressedData["
+1:eJzt0rENgDAMBEA/m7ABYhRGyALs3wECK7Yp+EiUHymdL/bLmdu+tcnMlvOu
+xh2ALBQQEBAQEPgZDIoLDJG7wwh5RuKJZ6CzdEASrwNIkgFBKvgkCTCDZUBk
+qaCQN011FoQvtBL4bwog+NipPAwcadsC2w==
+       "], {{0, 0}, {50, 48}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["41", TraditionalForm]]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     GraphicsBox[RasterBox[CompressedData["
+1:eJztzcENgCAQRNH9dmIL0Ikl0ID93yQDBEm8cHYCA5NsHpzlvsoREbkm1aCt
+jLNd7wFas1hYWFhYWFhY/FKwK9gVLIIvQSuaITAFLJ/3p1UefB4EuA==
+       "], {{0, 0}, {
+       50, 51}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["42", TraditionalForm]], ",", 
+     GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmJiYGAwAGIjIGYcBaNgFIyCUTAKRsEoGISA5EYKyc0aVA1YdTMg
+KAYMDQyYCqGCADg4C1s=
+       "], {{0, 0}, {50, 48}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["42", TraditionalForm]]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     GraphicsBox[RasterBox[CompressedData["
+1:eJx9Vdl1wzAMA7tJV2g36QhZIPv/NXVEAiDp+iWRZdkkLjmfj+fP4wPA9+v7
+9foG4u+4xvMTyKFGXOe5EDqPU8IqneO9wCtnniWsUnVBDCT5aHilOtenbK4c
+OpeBZHJoXCaSyaHu1HNFMDkI9FiRdF9MRKxIui8OfUXiarCaW/KPL6wGU3X1
+JRuqUjuSUqN746ouvuzedCSmxurNXUIQrhDED0eiajRP6MdNQmT3uV73CVEO
+YJWOpPnS9Bo69IRMvSQx05fJQZAuvkwO16hvoyUhiLHuesyELOv5aaqCT8O5
+grVcVThT8WNXtdTK0urHXdpDWpofU1V5w6pMkr097ZSycblPO2s7l5rNtMNK
+63XIZQbWaisXmYkv1X7hojPxpQLgXEqfpp6A7Vw8bO5L28RldtkL41L8lAwH
+/dsSXyxuTITZ1pOgSSrGnV+tdVrsbP0kr6QV3pn9KKBuZ4mYpV13iwii7piI
+QsV0qYnmtJaMIyohdBgVG7cK52ZIw/JstyrOA2AnhqbFMW3jDnj7lVImjF8O
+FwhZ
+       "], {{0, 0}, {50, 51}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["43", TraditionalForm]], ",", 
+     GraphicsBox[RasterBox[CompressedData["
+1:eJx9VdtxwzAMA7tJN+h1lI6QBbL/X3WWSAKQlFwcJdaDeNH5fr3/Xl8Afsb1
+Oy7EusZHjNfzUUON8/tciPk1f885PG8e5208c7kuf69qCB2lIiPhQjyCKyqS
+nQOKRSyEhsTU2CoekJgaXvGExNSopYnpgGT3pfy4IRHQ5I2qevGFT3dVL76Y
+UqLqxRf1xhKz+SK5ImrnhKx4kCftxyUhnqs2/JoQ5kC1PiUExIG0+5QQ5kDi
+GxeaUg5oZBdfNg53Ll0tJbQu2bl05nIpzVcqRdX9KOeyqVoJ6a21sspq2rt+
+0P1aekp7eKysGQ5pXyhJHlfXn4eJsqhIjk9p7+M2LmgudAKbJVwYNKe9W2fj
+AuWCyK10tnAxe3tXAH02W07dRr6suwfLDaRqSrS6VaC6kC/BtJoLQmCJL9rE
+bZTmQHzRuBVt067yarSqcpevM0iXpiGJ4KdI7+ZWgFfuBDKCKsidUk89li5K
+F36caBdwAkkwy9tatWZgHDOHDDGt7igKx4qh/fWCp+R21ERuTHrj/Q981AfC
+
+       "], {{0, 0}, {50, 48}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["43", TraditionalForm]]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     GraphicsBox[RasterBox[CompressedData["
+1:eJyVk+1twzAMRI/dpCu0m3SELJD9/zUFIpH3YTUBbCSWIb4n8vx5u//cPgB8
+P+6vx12oddFDr+rS3OBv/y57nn/ThiMkvA0QsnoJwlbvQtI5HSJWL0DE6k1I
+bqaWUasAkSyYlUEsC2qVYvGPlUN4ya0UYlmwXlnmJQs2Qc+8ZMEnGK0uIOmc
+XelgZRDuYLJiiGUhWFlYCRKtBMJjilYEsSxEK4kFQbIVQ4oguVcxoQGyJ4hs
+hcMEs9WSiBOEVhqu2Sp9zThbwa3qbFXByo9OVghWdbSqZIWjFdSqHMJWZVY1
+gNEKZjXeRasyK4OoFcwqfc8gcp94NanmHuvV/mkriZxMEF17W1GufYKjdgdq
+QnyCXZsDdW01ahfI/9Kqa0ug1OqpM2qjHS0N2AlC1wZosYIVZf7ZtxmrtsLm
+L9r+ulfWfwFwJAgY
+       "], {{0, 0}, {50, 51}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["44", TraditionalForm]], ",", 
+     GraphicsBox[RasterBox[CompressedData["
+1:eJyVldERwjAMQ202YQOOURihC7D/H+0ddWxJTlooHDSN9WSr8Ny+n+1hZq/9
+9bbj4f/D/XgzOuhUfDS1alxmvqpECtVNEbsosvRJZYDqloh1ItNeKRH6DlR3
+RKwRwSxcmVg9RVSqRiNizQbMwtInZYEmuB4iUpF1zMLSJ2VBUK3iKKigmeBE
+lcOJVRFJNW+XoqrNBCeSSvUqyiiqxhyJZCrVKwuPopZzpVFGUskhTidY+uuw
+p6EqOaqsHRUXC9aGKg0O+ttSxVp25jMq9S8AIkgVI/Yq0lONHI2ueh0MUoFL
+IxGiSh3IIhOq7HjsSiJIhUMwEmGqDJPR2gmm2qkLjmnwopZFxmU1DXD/JcfY
+Q77Oc+0YTymTqErm/eQ7N9Q0CKMgAmmIfI7focK5P3/sZwVv
+       "], {{0, 0}, {50, 
+       48}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["44", TraditionalForm]]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     GraphicsBox[RasterBox[CompressedData["
+1:eJy91eERgyAMBeD3uklXsJt0BBfo/v+0UiRKQn13yCmo6JdE1PM5f97zA8Br
+bdPaQMZrXg6rDJyB7iCuKgJhko4gqKoBosQ9gVdVG7hPqDOoqvoLzifvAJQB
+BgDKAAMAZYABgDLAAEAZQAaUAWRAGUAG+h23/2oeaP7VXDDidbpclYl/P9i/
+88ugZJLBKQlCwHIvx6ghMAcmts0ZA5bYCdbTWi7bk+R+G3eeQ7ks7SH3v6Iq
+YKYjT8IGkIv6blOzlWIBS2gIVA==
+       "], {{0, 0}, {50, 51}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["45", TraditionalForm]], ",", 
+     GraphicsBox[RasterBox[CompressedData["
+1:eJzt1WEKgzAMBeD3dhNvMHaUHcEL7P7/FLe0XdpEAyUwmChU5csLLdplfT3X
+G4D7fj32C7ROOfSbMDBDTGCFzATjrjwwDJkMBl2dgD5kPtBdnQMmAIQBEwDC
+gAkAYcAEgDBgAsAf/DhwNqlpwNs6x+BiyAD48muayqOrQD5b3Z7z6/sAUFe1
+AAQI7jL7pS43tfYhesACZCS1ZWk1aIuU/uRvBJbMCmqRdp6O7HdTbMZNp9wA
+vOMGXQ==
+       "], {{0, 0}, {50, 48}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["45", TraditionalForm]]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     GraphicsBox[RasterBox[CompressedData["
+1:eJyV0usNgzAMRlG7m3SFdpOOwALd/19J8Csi0BsqJKiMnS8nz+372R4i8t7v
+136rqEq7tV3tvd/92a/+91HVX9XerEj9c8mfWE/7oE6QMsGmiX0r0SQn5B82
+NxbtE2LJsww6zTBMqBns+ZzBSicZ5DqDTDLkpp4yHHXUweW4Q5XDDrmvyKFO
+gA7RlDrMM9w5TDL8cyg7yxwkyxccNDpih2jGHDQbMIdYB3XIKuwQy6YOKUcd
+ihx10GE8zOBdVjJkbpxhwSH3dSnDokNCLGTwk8IyRGKeIaZBB5fjGcoBpA7D
+CWQO6oviDlEJHcrphQ6+W9xBaiFxcDnuEHLcIeSwQ55C6hBngzqkHHW4mnDj
+YK1/3csGuw==
+       "], {{0, 0}, {50, 51}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["46", TraditionalForm]], ",", 
+     GraphicsBox[RasterBox[CompressedData["
+1:eJyV09sNwjAMhWGbTdgAMQojdAH2f4M29nF6Af2WCFUvsXPytffl/VpuZvb4
+jud3mJv7evD1ME62//WXV7cHbDxllrNimuVdj7OcZlXWNVd9NDkuxNjuVLVY
+xrhbj6tarf+cIS5cZtA69xnc/VcGs3OGfaFjhtH2kMFiSVcZojR1kBx2uPL+
+76AO1GGSgw5aDXfQu4EdtFzqcOoAHKI5d/CpBHKoPg0HjwDUYfqkmEPKcQft
+FXaQHHYoOexQqRsZfK7CMmRomiEgmhm8kSHlGhlKjjroRYQZUo47pBx3sE6G
+wxeEHUKu4bBfFHTI0sxBDbDDJAcdXImpQ+0rd6h9YA7qgB2mfYAO2fYDZ30G
+iw==
+       "], {{0, 0}, {50, 48}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["46", TraditionalForm]]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmJiYGAwBmIjIGaEQjgDzMQihMIf1TGqY1THqI5RHaM6RnWM6hiR
+OsAkNhW4dEAUw+zANA+JD3UKiMEIs4MBmx1QMRAbbAMjRBdYkhGuggFmHdQR
+AG4BBnA=
+       "], {{0, 0}, {50, 51}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["47", TraditionalForm]], ",", 
+     GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmJiYGAwAGIjIGYcBaNgFIyCUTAKRsEoGIyAAU6QpQGfTgaiNcBU
+MoCZ6BoYoFwGhCiYBgA2dQtW
+       "], {{0, 0}, {50, 48}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["47", TraditionalForm]]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     GraphicsBox[RasterBox[CompressedData["
+1:eJzt0LsNhFAMRNF76WRbWDqhBBqg/2z5iE9AsJNYT4hg7JGlk/gzTsPYAf2c
+7xxR1uxzuW3ds3uWGBgDCoAFgALgQwAFwBf8DYiBTQIKgAWAGNgkIAY2CSgA
+xoAYGANiYJOAAmAMiIEHUC/A+y8t6wdxIAXc
+       "], {{0, 0}, {50, 51}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["48", TraditionalForm]], ",", 
+     GraphicsBox[RasterBox[CompressedData["
+1:eJzt0MENgCAQRNE/dmIHxlIsgQbs/yaKcPIyMRqyCmF3gLzLjmld0gBM+cy0
+JZWa+76PCzWfzyXoBw8CXgAKAggCZANsIBtgA30WYAPZABvIBthANsAG6hIQ
+BMgG2EBdAm6A2urP9ZRy2ACcbAYo
+       "], {{0, 0}, {50, 48}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["48", TraditionalForm]]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     GraphicsBox[RasterBox[CompressedData["
+1:eJxllNF1wzAMA6Fu0hXaTTpCFsj+f/VzBOAop3FfotAkCB79/Xr/vb4k/V7X
+z3VpraX83e/r7D7PT/frc35/9U87fK0duHa6ZNtRDlOzy3fvez7ZtCO0eiW7
+M/gebUGfCIche7MsxDlC6TFNRvIu5ag27rL7xkpeaqYduMWq2hXJFlon005E
+di7L56qTggBbmKm4cgS4rJrVne15QloqxXZ+kW1oDCrFC6CwYkOOg1H9BQrp
+Tjg+ysaQtNSORqqWVQWDUhLyKIvx5u5BSMqaCLWoMx2EhNVm5yBRu5z7A2QV
++1gaQjq4ygL2tbRr2C79v1LjNNYfi9E1FErAgmqHoBBQzIFyCKwDgYmYh1nP
+tIKyVhhDUcZMca55Xt/hxxjcNNpN0uBjcCEPoIQ/+4HVKskEpfwhgVvBcocp
+8jebxKhcIeWovs13VKkQ5KkeeINWMiUd6jkYPWuY4jG6YFiUNIoco7NL3ecT
+3cfo8mgATHM7DhT6aOjYRw2gkFyZwpxcm8pycFP7dCn1vhI4NjVPl7SODUlg
+BPHpopGpH7qFWBi03w2JP9zUCT90N+XYwgN++BLrF+4xhZ0/fQnuauGoHpMC
+mJkT+WorxQgDSxmqTivxxYQ2dvJlEuELuQ455ctLXl/+AT5bBwE=
+       "], {{0, 0}, {50, 
+       51}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["49", TraditionalForm]], ",", 
+     GraphicsBox[RasterBox[CompressedData["
+1:eJxdlO1RA0EMQy06oQOGUighDaT/fyTZk/R8DJkci9cf0vN9P55/j6+Z+Xl9
+fl+f0fhHo/P7fv58ST49ge9n7TBdYScD7ugc40JSycGOSKarSDOc6M/z+GD8
+xwm96p5H964eXc0zvVr/tCyeDmqpjXSayRTCuFXSHV/R1ucq5ZtoIHp3AGdT
+U6dVl8UYK03dhE8om3/AT8do1+lwNcWWTeNXWYoHijxadFi5PGyJzJwLg/bZ
+e5V5ETJ2IAgiCMzBSl/AYiSFkpTRxRWWXpXjSUWURaj760I2xSSEPNDcVnsB
+3x0IOhXcEB0pdDeurvVzG7TGqdWCA14QMRP6x1kijnV0v3x3QH51C25oLuOW
+0KUT+UNAu92GenELX4ZfW5jxoEasG9abnt/t1g42eHvcio7uuU6JA1ThD9bB
+mLJUqEocZkuFoISrnSStVaWCtIuw+16tTwTdwil9VF/QdJtmo7D2rba7ZsYa
+2wUyvR0QsqsZRKyCUeDeYqimAtd5N+yRYvR4xbBklDgRkR+MdmHifwAri0KT
+kaZsL+ICCea2kLlWjNIv42vaUglgTi6Fr/oReZe3A73YDCCDfFVv8dW3QZ3f
++iwVxHLV5R/WCwat
+       "], {{0, 0}, {50, 48}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["49", TraditionalForm]]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     GraphicsBox[RasterBox[CompressedData["
+1:eJyVk+1twzAMRI/dpCu0m3SELJD9/zUFIpH3YTUBbCSWIb4n8vx5u//cPgB8
+P+6vx12oddFDr+rS3OBv/y57nn/ThiMkvA0QsnoJwlbvQtI5HSJWL0DE6k1I
+bqaWUasAkSyYlUEsC2qVYvGPlUN4ya0UYlmwXlnmJQs2Qc+8ZMEnGK0uIOmc
+XelgZRDuYLJiiGUhWFlYCRKtBMJjilYEsSxEK4kFQbIVQ4oguVcxoQGyJ4hs
+hcMEs9WSiBOEVhqu2Sp9zThbwa3qbFXByo9OVghWdbSqZIWjFdSqHMJWZVY1
+gNEKZjXeRasyK4OoFcwqfc8gcp94NanmHuvV/mkriZxMEF17W1GufYKjdgdq
+QnyCXZsDdW01ahfI/9Kqa0ug1OqpM2qjHS0N2AlC1wZosYIVZf7ZtxmrtsLm
+L9r+ulfWfwFwJAgY
+       "], {{0, 0}, {50, 51}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["50", TraditionalForm]], ",", 
+     GraphicsBox[RasterBox[CompressedData["
+1:eJyVldERwjAMQ202YQOOURihC7D/H+0ddWxJTlooHDSN9WSr8Ny+n+1hZq/9
+9bbj4f/D/XgzOuhUfDS1alxmvqpECtVNEbsosvRJZYDqloh1ItNeKRH6DlR3
+RKwRwSxcmVg9RVSqRiNizQbMwtInZYEmuB4iUpF1zMLSJ2VBUK3iKKigmeBE
+lcOJVRFJNW+XoqrNBCeSSvUqyiiqxhyJZCrVKwuPopZzpVFGUskhTidY+uuw
+p6EqOaqsHRUXC9aGKg0O+ttSxVp25jMq9S8AIkgVI/Yq0lONHI2ueh0MUoFL
+IxGiSh3IIhOq7HjsSiJIhUMwEmGqDJPR2gmm2qkLjmnwopZFxmU1DXD/JcfY
+Q77Oc+0YTymTqErm/eQ7N9Q0CKMgAmmIfI7focK5P3/sZwVv
+       "], {{0, 0}, {50, 
+       48}}, {0, 1}],
+      Frame->Automatic,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      Method->{
+       "DefaultBoundaryStyle" -> Automatic, "DefaultPlotStyle" -> Automatic},
+      PlotLabel->FormBox["50", TraditionalForm]]}], "}"}]}], "}"}]], "Output",\
+
+ CellChangeTimes->{
+  3.676418287193325*^9, {3.676735351376429*^9, 3.676735361945217*^9}}]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.6764190315167913`*^9, 3.676419033051667*^9}, {
+   3.6764190842016487`*^9, 3.676419094104597*^9}, 3.6767353776676617`*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["$Line"], "Input",
+ CellChangeTimes->{{3.676550520939947*^9, 3.676550526254837*^9}}],
+
+Cell[BoxData["57"], "Output",
+ CellChangeTimes->{3.676550526764844*^9}]
+}, Open  ]]
+},
+WindowSize->{958, 1155},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"11.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (June 15, \
+2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 1044, 29, 129, "Code"],
+Cell[CellGroupData[{
+Cell[1627, 53, 128, 2, 32, "Input"],
+Cell[1758, 57, 142, 2, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1937, 64, 138, 2, 32, "Input"],
+Cell[2078, 68, 89, 2, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2204, 75, 551, 12, 75, "Input"],
+Cell[2758, 89, 818, 13, 54, "Output"]
+}, Open  ]],
+Cell[3591, 105, 135, 2, 32, "Input"],
+Cell[CellGroupData[{
+Cell[3751, 111, 621, 10, 54, InheritFromParent],
+Cell[4375, 123, 622, 10, 54, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5034, 138, 168, 4, 32, "Input"],
+Cell[5205, 144, 270, 6, 24, "Message"],
+Cell[5478, 152, 117, 2, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5632, 159, 93, 1, 32, "Input"],
+Cell[5728, 162, 624, 10, 54, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6389, 177, 520, 12, 32, "Input"],
+Cell[6912, 191, 10033, 240, 161, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[16982, 436, 86, 2, 32, "Input"],
+Cell[17071, 440, 129, 3, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[17237, 448, 691, 20, 32, "Input"],
+Cell[17931, 470, 13724, 314, 205, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[31692, 789, 98, 1, 32, "Input"],
+Cell[31793, 792, 7786, 201, 95, "Output"]
+}, Open  ]],
+Cell[39594, 996, 191, 5, 32, "Input"],
+Cell[39788, 1003, 316, 9, 32, "Input"],
+Cell[40107, 1014, 100, 1, 32, "Input"],
+Cell[CellGroupData[{
+Cell[40232, 1019, 143, 2, 32, "Input"],
+Cell[40378, 1023, 317, 7, 24, "Message"]
+}, Open  ]],
+Cell[40710, 1033, 322, 10, 32, "Input"],
+Cell[41035, 1045, 619, 19, 54, "Input"],
+Cell[CellGroupData[{
+Cell[41679, 1068, 535, 15, 54, "Input"],
+Cell[42217, 1085, 571, 15, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[42825, 1105, 745, 21, 32, "Input"],
+Cell[43573, 1128, 13799, 315, 205, "Output"]
+}, Open  ]],
+Cell[57387, 1446, 347, 10, 32, "Input"],
+Cell[CellGroupData[{
+Cell[57759, 1460, 342, 9, 54, "Input"],
+Cell[58104, 1471, 13782, 314, 205, "Output"]
+}, Open  ]],
+Cell[71901, 1788, 546, 14, 32, "Input"],
+Cell[CellGroupData[{
+Cell[72472, 1806, 701, 20, 32, "Input"],
+Cell[73176, 1828, 13850, 315, 205, "Output"]
+}, Open  ]],
+Cell[87041, 2146, 638, 15, 32, "Input"],
+Cell[CellGroupData[{
+Cell[87704, 2165, 289, 6, 54, "Input"],
+Cell[87996, 2173, 71171, 1656, 5734, "Output"]
+}, Open  ]],
+Cell[159182, 3832, 170, 2, 32, "Input"],
+Cell[CellGroupData[{
+Cell[159377, 3838, 97, 1, 32, "Input"],
+Cell[159477, 3841, 71, 1, 32, "Output"]
+}, Open  ]]
+}
+]
+*)
+
